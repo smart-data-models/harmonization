@@ -1,0 +1,394 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/data-models.Energy/InverterDevice/schema.json",
+  "title": "InverterDevice schema",
+  "description": "The data model is intended to describe the mechanical, electrical characteristics of an Inverter according to *DC - Direct Current Information* supplied as input and *AC - Alternating Current Information*  returned as output. *Remark*: This Data Model can be used directly as a main entity to describe the device [Inverter] or as a sub-entity of the Data Model {DEVICE] using a reference by the [refDevice] attribute.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "InverterDevice"
+          ],
+          "description": "NGSI Entity type"
+        },
+        "refDevice": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "refPointOfInterest": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "dateLastReported": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "brandName": {
+          "type": "string"
+        },
+        "modelName": {
+          "type": "string"
+        },
+        "manufacturerName": {
+          "type": "string"
+        },
+        "serialNumber": {
+          "type": "string"
+        },
+        "application": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "electricMobility",
+              "energyStorage",
+              "emergencyStorage",
+              "lighting",
+              "industrialStorage",
+              "houseHoldStorage",
+              "robotics",
+              "production",
+              "other"
+            ]
+          }
+        },
+        "typeOfUse": {
+          "type": "string",
+          "enum": [
+            "indoor",
+            "outdoor",
+            "mixed",
+            "other"
+          ]
+        },
+        "installationMode": {
+          "type": "string",
+          "enum": [
+            "ground",
+            "underGround",
+            "aerial",
+            "wall",
+            "pole",
+            "roofing",
+            "other"
+          ]
+        },
+        "installationCondition": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "extremeHeat",
+              "extremeCold",
+              "extremeHumidity",
+              "extremeClimate",
+              "desert",
+              "sand",
+              "marine",
+              "saline",
+              "dust",
+              "seismic",
+              "other"
+            ]
+          }
+        },
+        "possibilityOfUse": {
+          "type": "string",
+          "enum": [
+            "stationary",
+            "mobile",
+            "mixed",
+            "other"
+          ]
+        },
+        "documentation": {
+          "type": "string"
+        },
+        "owners": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "phaseType": {
+          "type": "string",
+          "enum": [
+            "singlePhase",
+            "threePhase"
+          ]
+        },
+        "supplyPhaseNb": {
+          "type": "number",
+          "minimum": 0
+        },
+        "dimension": {
+          "type": "object",
+          "properties": {
+            "length": {
+              "type": "number",
+              "minimum": 0
+            },
+            "height": {
+              "type": "number",
+              "minimum": 0
+            },
+            "depth": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "weight": {
+          "type": "number",
+          "minimum": 0
+        },
+        "protectionIP": {
+          "type": "string"
+        },
+        "protectionIK": {
+          "type": "number"
+        },
+        "protectionClassSLK": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "overVoltageCategory": {
+          "type": "string",
+          "enum": [
+            "I",
+            "II",
+            "III",
+            "IV"
+          ]
+        },
+        "operatingTemperature": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": -50
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "operatingAirHumidity": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "nominalPowerDC": {
+          "type": "number"
+        },
+        "nominalVoltageDC": {
+          "type": "number"
+        },
+        "nominalAmpereDC": {
+          "type": "number"
+        },
+        "nominalFrequencyDC": {
+          "type": "number"
+        },
+        "operatingVoltageDC": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "operatingAmpereDC": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "operatingFrequencyDC": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "mPPTPVVoltageDC": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "startingVoltageDC": {
+          "type": "number"
+        },
+        "nbMPPTrackersDC": {
+          "type": "number"
+        },
+        "nbInputParallelDC": {
+          "type": "string"
+        },
+        "maxInputCurrentParallelAssembly": {
+          "type": "number"
+        },
+        "nominalPowerAC": {
+          "type": "number"
+        },
+        "maxOutputPowerAC": {
+          "type": "number"
+        },
+        "nominalVoltageAC": {
+          "type": "number"
+        },
+        "nominalAmpereAC": {
+          "type": "number"
+        },
+        "nominalFrequencyAC": {
+          "type": "number"
+        },
+        "operatingVoltageAC": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "operatingAmpereAC": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "operatingFrequencyAC": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "powerFactorAC": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "moduleYieldRate": {
+          "type": "object",
+          "properties": {
+            "euro": {
+              "type": "number"
+            },
+            "eta": {
+              "type": "number"
+            }
+          }
+        },
+        "noiseLevel": {
+          "type": "number"
+        },
+        "self-consumption": {
+          "type": "number"
+        },
+        "topology": {
+          "type": "string"
+        },
+        "coolingSystem": {
+          "type": "string",
+          "enum": [
+            "Convection",
+            "OptiCool",
+            "Regulated-fan",
+            "Other"
+          ]
+        },
+        "inverterStatus": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "00-OnSector",
+              "01-PowerFailure/OnBattery",
+              "02-LossCommunication",
+              "03-BatteryFault",
+              "04-SystemShutDown",
+              "05-TensionDip",
+              "06-OverVoltage",
+              "07-VoltageDrop",
+              "08-VoltageIncrease",
+              "09-LineNoise",
+              "10-FrequencyVariation",
+              "11-TransientDistortion",
+              "12-HarmonicDistortion"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "dateLastReported",
+    "phaseType"
+  ]
+}
