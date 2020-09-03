@@ -5,7 +5,7 @@
 components:
   schemas:
     ACMeasurement:
-      $ref: 'https://smart-data-models.github.io/dataModel.harmonization/ACMeasurement/model.yaml#/ACMeasurement'
+      $ref: 'https://smart-data-models.github.io/harmonization/ACMeasurement/model.yaml#/ACMeasurement'
 info:
   description: |
     The Data Model intended to measure the electrical energies consumed by an
@@ -37,11 +37,11 @@ paths:
                 keyvalues:
                   summary: Key-Values Pairs
                   value:
-                    - $ref: 'https://smart-data-models.github.io/dataModel.harmonization/ACMeasurement/examples/example.json'
+                    - $ref: 'https://smart-data-models.github.io/harmonization/ACMeasurement/examples/example.json'
                 normalized:
                   summary: Normalized NGSI-LD
                   value:
-                    - $ref: 'https://smart-data-models.github.io/dataModel.harmonization/ACMeasurement/examples/example-normalized-ld.jsonld'
+                    - $ref: 'https://smart-data-models.github.io/harmonization/ACMeasurement/examples/example-normalized-ld.jsonld'
           description: OK
       tags:
         - ngsi-ld
