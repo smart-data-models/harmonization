@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.Weather/RainFallRadarObserved/schema.json",
+  "title": "Rain Fall Radar Observation schema",
+  "description": "The Data Model is intended to measure the water slides on a predefined area by a set of 4 Location represented by a Geo property format.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "RainFallRadarObserved"
+          ],
+          "description": "NGSI Entity type"
+        },
+        "refDevice": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "refPointOfInterest": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "dateObserved": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateObservedFrom": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateObservedTo": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "rainFallRadarContent": {
+          "type": "string"
+        },
+        "numberOfRow": {
+          "type": "number",
+          "minimum": 0
+        },
+        "numberOfCol": {
+          "type": "number",
+          "minimum": 0
+        },
+        "cellsSize": {
+          "type": "number"
+        },
+        "mapScale": {
+          "type": "string"
+        },
+        "measuredArea": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "dateObserved",
+    "rainFallRadarContent"
+  ]
+}
