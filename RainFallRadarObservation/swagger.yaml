@@ -4,13 +4,13 @@
 
 components:
   schemas:
-    RainFallRadarObserved:
+    RainFallRadarObservation:
       $ref: 'https://smart-data-models.github.io/harmonization/RainFallRadarObservation/model.yaml#/RainFallRadarObserved'
 info:
   description: |
     The Data Model is intended to measure the water slides on a predefined area
     by a set of 4 Location represented by a Geo property format.
-  title: RainFallRadarObserved
+  title: RainFallRadarObservation
   version: 1.0.0
 openapi: 3.0.0
 paths:
@@ -23,7 +23,7 @@ paths:
           required: true
           schema:
             enum:
-              - RainFallRadarObserved
+              - RainFallRadarObservation
             type: string
       responses:
         '200':
