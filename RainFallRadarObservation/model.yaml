@@ -1,4 +1,4 @@
-StorageBatteryDevice:
+RainFallRadarObserved:
       required:
         - id
         - type
