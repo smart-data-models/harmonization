@@ -5,7 +5,7 @@
 components:
   schemas:
     RainFallRadarObserved:
-      $ref: 'https://smart-data-models.github.io/harmonization/RainFallRadarObserved/model.yaml#/RainFallRadarObserved'
+      $ref: 'https://smart-data-models.github.io/harmonization/RainFallRadarObservation/model.yaml#/RainFallRadarObserved'
 info:
   description: |
     The Data Model is intended to measure the water slides on a predefined area
@@ -33,11 +33,11 @@ paths:
                 keyvalues:
                   summary: Key-Values Pairs
                   value:
-                    - $ref: 'https://smart-data-models.github.io/harmonization/RainFallRadarObserved/examples/example.json'
+                    - $ref: 'https://smart-data-models.github.io/harmonization/RainFallRadarObservation/examples/example.json'
                 normalized:
                   summary: Normalized NGSI-LD
                   value:
-                    - $ref: 'https://smart-data-models.github.io/harmonization/RainFallRadarObserved/examples/example-normalized.jsonld'
+                    - $ref: 'https://smart-data-models.github.io/harmonization/RainFallRadarObservation/examples/example-normalized.jsonld'
           description: OK
       tags:
         - ngsi-ld
