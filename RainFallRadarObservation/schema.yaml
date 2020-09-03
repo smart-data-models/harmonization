@@ -1,0 +1,103 @@
+RainFallRadarObserved:
+  required:
+    - id
+    - type
+    - location
+    - dateObserved
+    - rainFallRadarContent
+  allOf:
+    - $ref: >-
+        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/Common
+  type: object
+  description: >-
+    The Data Model is intended to measure the water slides on a predefined area
+    by a set of 4 Location represented by a Geo property format.
+  properties:
+    address:
+        $ref: 'https://smart-data-models.github.io/data-models/schema.org.yaml#/address'
+    alternateName:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: 'Alternative Name given to the observation'
+    areaServed:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: ' Zone of level higher to the attributes Location & Address to gather and cross information (ex district, etc)'
+    cellsSize:
+      x-ngsi:
+        type: Property
+      type: number
+      description: 'Size of each cell constituting the radar. The unit code (text) of measurement is given using the UN/CEFACT Common Codes. For instance, MTR represents Meters.'
+    dataProvider:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: 'Specifies the URL to information about the provider of this information'
+    dateObserved:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Date and time of this observation represented by an ISO8601 UTC format. It can be represented by an specific time instant or by an ISO8601 interval to separate attributes dateObservedFrom,dateObservedTo.'
+      format: date-time
+    dateObservedFrom:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Observation period: Start date and time in an ISO8601 UTC format. The attribute can be used in addition to the dateObserved attribute when it corresponds to a time interval to be highlighted.'
+      format: date-time
+    dateObservedTo:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/DateTime'
+      type: string
+      description: 'Observation period: End date and time in an ISO8601 UTC format. The attribute can be used in addition to the dateObserved attribute when it corresponds to a time interval to be highlighted.'
+      format: date-time
+    description:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/description
+    location:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/location
+    mapScale:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: 'Map Scale. Relationship between the length of the cellSize and its representation on the map.'
+    measuredArea:
+      x-ngsi:
+        type: Property
+      type: number
+      description: 'Reference of the surface measured. The unit code (text) is given using the UN/CEFACT Common Codes. FOR instance, MTK represents Square Meters.'
+    name:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/ngsi-ld.yaml#/name
+    numberOfCol:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
+    numberOfRow:
+      x-ngsi:
+        type: Property
+      type: number
+      description: ''
+    owner:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/fiware-terms.yaml#/owner
+    rainFallRadarContent:
+      x-ngsi:
+        type: Property
+        model: 'https://schema.org/Text'
+      type: string
+      description: 'Path and filename which provided the information observed.'
+    source:
+      $ref: >-
+        https://smart-data-models.github.io/data-models/fiware-terms.yaml#/source
