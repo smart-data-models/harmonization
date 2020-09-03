@@ -36,7 +36,7 @@ ACMeasurement:
         type: Property
         model: 'https://schema.org/Text'
         $ref: >-
-        https://smart-data-models.github.io/data-models/fiware-terms.yaml#/dataProvider
+          https://smart-data-models.github.io/data-models/fiware-terms.yaml#/dataProvider
       type: string
       description: 'Specifies the URL to information about the provider of this information'
     description:
