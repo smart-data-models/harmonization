@@ -41,7 +41,7 @@ paths:
                 normalized:
                   summary: Normalized NGSI-LD
                   value:
-                    - $ref: 'https://smart-data-models.github.io/harmonization/ACMeasurement/examples/example-normalized-ld.jsonld'
+                    - $ref: 'https://smart-data-models.github.io/harmonization/ACMeasurement/examples/example-normalized.jsonld
           description: OK
       tags:
         - ngsi-ld
