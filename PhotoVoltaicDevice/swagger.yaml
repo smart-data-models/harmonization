@@ -5,7 +5,7 @@
 components:
   schemas:
     PhotovoltaicDevice:
-      $ref: 'https://smart-data-models.github.io/harmonization/PhotovoltaicDevice/model.yaml#/PhotovoltaicDevice'
+      $ref: 'https://smart-data-models.github.io/harmonization/PhotoVoltaicDevice/model.yaml#/PhotovoltaicDevice'
 info:
   description: |
     The Data Model is intended to describe the mechanical, electrical and
@@ -44,11 +44,11 @@ paths:
                 keyvalues:
                   summary: Key-Values Pairs
                   value:
-                    - $ref: 'https://smart-data-models.github.io/harmonization/PhotovoltaicDevice/examples/example.json'
+                    - $ref: 'https://smart-data-models.github.io/harmonization/PhotoVoltaicDevice/examples/example.json'
                 normalized:
                   summary: Normalized NGSI-LD
                   value:
-                    - $ref: 'https://smart-data-models.github.io/harmonization/PhotovoltaicDevice/examples/example-normalized.jsonld'
+                    - $ref: 'https://smart-data-models.github.io/harmonization/PhotoVoltaicDevice/examples/example-normalized.jsonld'
           description: OK
       tags:
         - ngsi-ld
