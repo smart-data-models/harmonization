@@ -1,0 +1,349 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/data-models/Port/SeaPort/schema.json",
+  "title": "SeaPortobserved schema",
+  "description": "The Data Model is intended to provide information about ports that can accommodate pleasure craft, commerce or passenger  transport. It permit to represent the parameters of each port, its location, its mooring capacities and the free or paid services associated with it provided directly by the port or by professionals working on or near the port.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "SeaPort"
+          ],
+          "description": "NGSI Entity type"
+        },
+        "dateLastReported": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "refDevice": {
+          "type": "string",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "refPointOfInterest": {
+          "type": "string",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "refBoatAuthorized": {
+          "type": "array",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          }
+        },
+        "refBoatPlaceAvailable": {
+          "type": "array",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          }
+        },
+        "refBoatPlacePricing": {
+          "type": "array",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          }
+        },
+        "owner": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contractingAuthority": {
+          "type": "string"
+        },
+        "contractingCompagny": {
+          "type": "string"
+        },
+        "contactPoint": {
+          "type": "Object"
+        },
+        "webSite": {
+          "type": "string"
+        },
+        "typeOfPort": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "marina",
+              "merchandise",
+              "cruise",
+              "ferry",
+              "passengers",
+              "yatching",
+              "fishing",
+              "military",
+              "river",
+              "other"
+            ]
+          }
+        },
+        "authorizedPropulsions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "motor",
+              "sail",
+              "electric",
+              "oar",
+              "nuclear",
+              "lng",
+              "lpg",
+              "other"
+            ]
+          }
+        },
+        "maxTonnage": {
+          "type": "number",
+          "minimum": 0
+        },
+        "numberOfPlace": {
+          "type": "number",
+          "minimum": 0
+        },
+        "minLength": {
+          "type": "number",
+          "minimum": 0
+        },
+        "maxLength": {
+          "type": "number",
+          "minimum": 0
+        },
+        "maxWidth": {
+          "type": "number",
+          "minimum": 0
+        },
+        "maxDraft": {
+          "type": "number",
+          "minimum": 0
+        },
+        "openingHoursSpecification": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "opens": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "closes": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "dayOfWeek": {
+                "type": "string",
+                "enum": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                  "PublicHolidays"
+                ]
+              },
+              "validFrom": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "validThrough": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "minItems": 1
+        },
+        "portServicesProvided": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "harborOffice",
+              "weather",
+              "customsServices",
+              "porters",
+              "boatRingRental",
+              "mooringAssistance",
+              "handlingAssistance",
+              "publicWifi",
+              "privateWifi",
+              "other"
+            ]
+          }
+        },
+        "boatSupplyingServices": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "guarding",
+              "fuelStation",
+              "fuelTankerTruck",
+              "DrinkingWaterTankerTruck",
+              "provisioning",
+              "dryFairing",
+              "waterFairing",
+              "repair",
+              "expertise",
+              "gangways",
+              "liftingCranes",
+              "towing",
+              "wasteWaterPumping",
+              "boatConveying",
+              "boatTransfer",
+              "other"
+            ]
+          }
+        },
+        "facilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "toilets",
+              "showers",
+              "laundry",
+              "telephone",
+              "dustbins",
+              "dumpsters",
+              "container",
+              "selectiveSortingWaste",
+              "electricTerminal",
+              "waterTerminal",
+              "indoorRoomreservation ",
+              "other"
+            ]
+          }
+        },
+        "nearbyServices": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "touristOffice",
+              "fittingsStores",
+              "travelAgency",
+              "exchangeOffice",
+              "medicalOffice",
+              "pharmacy",
+              "groceryStores",
+              "restaurants",
+              "presses",
+              "bar",
+              "shops",
+              "seaExcursions",
+              "cityTour",
+              "touristicExcursions",
+              "Others"
+            ]
+          }
+        },
+        "rentalSaleServices": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "boatRental",
+              "boatSale",
+              "jetSkiRental",
+              "jetSkiSale",
+              "carRental",
+              "luxuaryCarRental",
+              "vanRental",
+              "bikeRental",
+              "scooterRental",
+              "Caddie",
+              "palletTransport",
+              "Others"
+            ]
+          }
+        },
+        "transportServices": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "parking",
+              "shuttlesToAirport",
+              "shuttlesToRailway",
+              "internalShuttle",
+              "taxis",
+              "heliport",
+              "Others"
+            ]
+          }
+        },
+        "routeType": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "tram",
+              "metro",
+              "train",
+              "bus",
+              "ferry",
+              "cableTram",
+              "cableCar",
+              "funicular",
+              "trolleybus",
+              "monorail"
+            ]
+          }
+        },
+        "electricTransport": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "electricCar",
+              "electricBycicle",
+              "electricMotorBike",
+              "electricScooter"
+            ]
+          }
+        },
+        "paymentAccepted": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Cash",
+              "CreditCard",
+              "CryptoCurrency",
+              "other"
+            ]
+          }
+        },
+        "currencyAccepted": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "EUR",
+              "USD"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "dateLastReported",
+    "typeOfPort"
+  ]
+}

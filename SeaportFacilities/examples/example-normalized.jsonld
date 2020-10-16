@@ -1,0 +1,185 @@
+{
+	"id": "urn:ngsi-ld:SeaPort:SeaPort:MNCA-SP-001",
+	"type": "SeaPort",
+	"name": {
+		"type": "Property",
+		"value": "Riviera-Port-NCE-SP-001"
+	},
+	"alternateName": {
+		"type": "Property",
+		"value": "Riviera Port - Main harbor - Commerce & Passengers"
+	},
+	"description": {
+		"type": "Property",
+		"value": "Harbor Description and services provided"
+	},
+	"seeAlso": {
+		"type": "Property",
+		"value": "https://ccinicecotedazur/docs/port-nice_z-card_2015"
+	},
+	"location": {
+		"type": "GeoProperty",
+		"value": {
+			"type": "point",
+				"coordinates": [43.664810, 7.196545]
+			}
+	},
+	"areaServed": {
+		"type": "Property",
+		"value": "Nice Port"
+	},
+	"dateLastReported": {
+		"type": "DateTime",
+		"value": "2020-03-17T08:45:00Z",
+		"metadata": {
+			"TimeInstant": {
+				"type": "Text",
+				"value": "2020-03-17TT08:45:00Z"
+			}
+		}
+	},
+	"refBoatAuthorized": {
+		"type": "Relationship",
+		"Object": ["urn:ngsi-ld:BoatAuthorized:MNCA-NCE-BA-001-yatching",
+					"urn:ngsi-ld:BoatAuthorized:MNCA-NCE-BA-001-passenger",
+					"urn:ngsi-ld:BoatAuthorized:MNCA-NCE-BA-001-fishing",
+					"urn:ngsi-ld:BoatAuthorized:MNCA-NCE-BA-001-cargo",
+					"urn:ngsi-ld:BoatAuthorized:MNCA-NCE-BA-001-tankers",
+					"urn:ngsi-ld:BoatAuthorized:MNCA-NCE-BA-001-specialist",
+					"urn:ngsi-ld:BoatAuthorized:MNCA-NCE-BA-001-war",
+					"urn:ngsi-ld:BoatAuthorized:MNCA-NCE-BA-001-historic"
+		]
+	},
+	"refBoatPlaceAvailable": {
+		"type": "Relationship",
+		"Object": ["urn:ngsi-ld:BoatPlaceAvailable:MNCA-BPA-Range-A",
+					"urn:ngsi-ld:BoatPlaceAvailable:MNCA-BPA-Range-BC",
+					"urn:ngsi-ld:BoatPlaceAvailable:MNCA-BPA-Range-DE",
+					"urn:ngsi-ld:BoatPlaceAvailable:MNCA-BPA-Range-FG",
+					"urn:ngsi-ld:BoatPlaceAvailable:MNCA-BPA-Range-HI",
+					"urn:ngsi-ld:BoatPlaceAvailable:MNCA-BPA-Range-JK",
+					"urn:ngsi-ld:BoatPlaceAvailable:MNCA-BPA-Range-LO",
+					"urn:ngsi-ld:BoatPlaceAvailable:MNCA-BPA-Range-PQ",
+					"urn:ngsi-ld:BoatPlaceAvailable:MNCA-BPA-Range-RT2",
+					"urn:ngsi-ld:BoatPlaceAvailable:MNCA-BPA-Range-RT2",
+					"urn:ngsi-ld:BoatPlaceAvailable:MNCA-BPA-Range-U",
+					"urn:ngsi-ld:BoatPlaceAvailable:MNCA-BPA-Range-VW",
+					"urn:ngsi-ld:BoatPlaceAvailable:MNCA-BPA-Range-XZ",
+					"urn:ngsi-ld:BoatPlaceAvailable:MNCA-BPA-Range-Z02"
+		]
+	},
+	"refBoatPlacePricing": {
+		"type": "Relationship",
+		"Object": ["urn:ngsi-ld:BoatPlacePricing:MNCA-BPP-Range-A",
+					"urn:ngsi-ld:BoatPlacePricing:MNCA-BPP-Range-BC",
+					"urn:ngsi-ld:BoatPlacePricing:MNCA-BPP-Range-DE",
+					"urn:ngsi-ld:BoatPlacePricing:MNCA-BPP-Range-FG",
+					"urn:ngsi-ld:BoatPlacePricing:MNCA-BPP-Range-HI",
+					"urn:ngsi-ld:BoatPlacePricing:MNCA-BPP-Range-JK",
+					"urn:ngsi-ld:BoatPlacePricing:MNCA-BPP-Range-LO",
+					"urn:ngsi-ld:BoatPlacePricing:MNCA-BPP-Range-PQ",
+					"urn:ngsi-ld:BoatPlacePricing:MNCA-BPP-Range-RT2",
+					"urn:ngsi-ld:BoatPlacePricing:MNCA-BPP-Range-RT2",
+					"urn:ngsi-ld:BoatPlacePricing:MNCA-BPP-Range-U",
+					"urn:ngsi-ld:BoatPlacePricing:MNCA-BPP-Range-VW",
+					"urn:ngsi-ld:BoatPlacePricing:MNCA-BPP-Range-XZ",
+					"urn:ngsi-ld:BoatPlacePricing:MNCA-BPP-Range-Z02"
+		]
+	},
+	"owner" : {
+		"type": "Property",
+		"value": ["Departement 06", "CCI06", "MNCA", "Ville de Nice"]
+	},
+	"contractingAuthority": {
+		"type": "Property",
+		"value": "CCI"
+	},
+	"contractingCompagny": {
+		"type": "Property",
+		"value": "Régie Autonome des ports"
+	},
+	"contactPoint": {
+		"type": "Property",
+		"value": "Capitainerie"
+	},
+	"webSite": {
+		"type": "Property",
+		"value": "https://riviera-ports.com/ports/port-de-nice"
+	},
+	"typeOfPort": {
+		"type": "Property",
+		"value": ["marina", "merchandise", "cruise", "ferry", "yatching"]
+	},
+	"authorizedPropulsions": {
+		"type": "Property",
+		"value": ["motor", "electric","lng"]
+	},
+	"maxTonnage": {
+		"type": "Property",
+		"value": 30000
+	},
+	"numberOfPlace": {
+		"type": "Property",
+		"value": 120
+	},
+	"minLength": {
+		"type": "Property",
+		"value": 6
+	},
+	"maxLength": {
+		"type": "Property",
+		"value": 180
+	},
+	"maxWidth": {
+		"type": "Property",
+		"value": 25
+	},
+	"maxDraft": {
+		"type": "Property",
+		"value": 9.65
+	},
+	"portServicesProvided": {
+		"type": "Property",
+		"value": ["harborOffice", "weather", "customsServices", "porters"]
+	},
+	"boatSupplyingServices": {
+		"type": "Property",
+		"value": ["fuelStation", "fuelTankerTruck", "drinkingWaterTankerTruck", "dryFairing", "repair", "expertise", "gangways", "liftingCranes", "towing", "wasteWaterPumping", "boatConveying"]
+	},
+	"facilities": {
+		"type": "Property",
+		"value": ["wifi", "telephone", "toilets", "selectiveSortingWaste", "electricTerminal", "waterTerminal", "dustbins", "dumpsters", "container"]
+	},
+	"nearbyServices": {
+		"type": "Property",
+		"value": ["groceryStores", "presses", "currencyExchange", "touristicExcursions"]
+	},
+	"rentalSaleServices": {
+		"type": "Property",
+		"value": ["boatRental", "boatSale", "carRental"]
+	},
+	"transportServices": {
+		"type": "Property",
+		"value": ["parking", "shuttlesToAirport", "taxis"]
+	},
+	"routeType": {
+		"type": "Property",
+		"value": ["tram", "metro", "train", "bus", "ferry"]
+	},
+	"electricTransport": {
+		"type": "Property",
+		"value": ["electricBycicle", "electricMotorBike"]
+	},
+	"paymentAccepted": {
+		"type": "Property",
+		"value": ["Cash", "CreditCard"]
+	},
+	"currencyAccepted": {
+		"type": "Property",
+		"value": ["EUR", "USD"]
+	},
+	"@context": [
+		"https://schema.lab.fiware.org/ld/context",
+		"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+	]
+}
