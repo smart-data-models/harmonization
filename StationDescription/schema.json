@@ -1,0 +1,314 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/data-models/Transportation/Station/schema.json",
+  "title": "Station schema",
+  "description": "The data model is a general description of urban stations (Metro, Bus, Tram, Heliport, ...) according to the GFTS standard https://developers.google.com/transit/gtfs/reference/#stopstxt, as well the detailed description of these (means of access, platform, assistance, ...).",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "Station"
+          ],
+          "description": "NGSI Entity type"
+        },
+        "dateLastReported": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "refPointOfInterest": {
+          "type": "string",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "stationType": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "tram",
+              "subway",
+              "rail",
+              "bus",
+              "ferry",
+              "cableTram",
+              "aerialLift",
+              "funicular",
+              "trolleybus",
+              "monorail"
+            ]
+          }
+        },
+        "locationType ": {
+          "type": "string",
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "parentStation   ": {
+          "type": "string"
+        },
+        "levelId   ": {
+          "type": "Number"
+        },
+        "platformCode   ": {
+          "type": "Number"
+        },
+        "zoneId": {
+          "type": "string"
+        },
+        "wheelChairAccessible ": {
+          "type": "string",
+          "enum": [
+            0,
+            1,
+            2
+          ]
+        },
+        "openingHoursSpecification": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "opens": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "closes": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "dayOfWeek": {
+                "type": "string",
+                "enum": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                  "PublicHolidays"
+                ]
+              },
+              "validFrom": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "validThrough": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "minItems": 1
+        },
+        "owner": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contractingAuthority": {
+          "type": "string"
+        },
+        "contractingCompany": {
+          "type": "string"
+        },
+        "contactPoint": {
+          "type": "object"
+        },
+        "webSite": {
+          "type": "string"
+        },
+        "instalationMode": {
+          "type": "string",
+          "enum": [
+            "ground",
+            "underGround",
+            "aerial",
+            "underSea"
+          ]
+        },
+        "dimension": {
+          "type": "object",
+          "properties": {
+            "height": {
+              "type": "number",
+              "minimum": 0
+            },
+            "width": {
+              "type": "number",
+              "minimum": 0
+            },
+            "depth": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "inventory": {
+          "type": "object",
+          "properties": {
+            "nbOfIOPoint": {
+              "type": "number",
+              "minimum": 0
+            },
+            "nbOfLane": {
+              "type": "number",
+              "minimum": 0
+            },
+            "nbOfPlatform": {
+              "type": "number",
+              "minimum": 0
+            },
+            "PlatformType": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "lateral",
+                  "central"
+                ]
+              }
+            }
+          }
+        },
+        "stationConnected": {
+          "type": "object",
+          "items": {
+            "properties": {
+              "stationType": {
+                "type": "string",
+                "enum": [
+                  "tram",
+                  "subway",
+                  "rail",
+                  "bus",
+                  "ferry",
+                  "cableTram",
+                  "aerialLift",
+                  "funicular",
+                  "trolleybus",
+                  "monorail"
+                ],
+                "properties": {
+                  "linesConnected ": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "services": {
+            "type": "object",
+            "properties": {
+              "purchaseDevice": {
+                "type": "Boolean"
+              },
+              "interactiveDevice": {
+                "type": "Boolean"
+              },
+              "timetableDevice": {
+                "type": "Boolean"
+              },
+              "voiceDevice": {
+                "type": "Boolean"
+              },
+              "informationBoardDevice": {
+                "type": "Boolean"
+              },
+              "messageDevice": {
+                "type": "Boolean"
+              },
+              "shelters": {
+                "type": "Boolean"
+              },
+              "restBench": {
+                "type": "Boolean"
+              },
+              "emergencyPhone": {
+                "type": "Boolean"
+              },
+              "defibrillator": {
+                "type": "Boolean"
+              },
+              "wheelChairAccessible": {
+                "type": "Boolean"
+              }
+            }
+          },
+          "paymentAccepted": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "Cash",
+                "CreditCard",
+                "CryptoCurrency",
+                "other"
+              ]
+            }
+          },
+          "currencyAccepted": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "EUR",
+                "USD"
+              ]
+            }
+          },
+          "constructionDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "commissioningDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "architecte": {
+            "type": "string"
+          },
+          "featuredArtist": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "dateObserved",
+    "dateLastReported",
+    "stationType",
+    "locationType"
+  ]
+}
