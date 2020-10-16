@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/data-models.Energy/StorageBatteryMeasurement/schema.json",
+  "title": "StorageBatteryMeasurement schema",
+  "description": "Storage Battery Observed Data Model is intended to measure the remaining energy capacity in a battery, which can be redistributed in the form of electrical energy. These functions apply from a �source� which depends on the type of battery (reference to the attribute  `batteryType` of the Data Model `StorageBatteryDevice`).",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "StorageBatteryMeasurement"
+          ],
+          "description": "NGSI Entity type"
+        },
+        "refStorageBatteryDevice": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "refPointOfInterest": {
+          "type": "string",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "dateObserved": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateObservedFrom": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateObservedTo": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "batteryLevel": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "number",
+              "const": -1
+            }
+          ]
+        },
+        "batteryStatus": {
+          "type": "string",
+          "enum": [
+            "standby",
+            "consumingEnergy",
+            "givingEnergy"
+          ]
+        },
+        "batteryAssessmentMethods": {
+          "type": "string",
+          "enum": [
+            "dischargeTest",
+            "ampereHourMetry",
+            "electrolyteDensity",
+            "quiescentVoltageWithOpenCircuit",
+            "operatingVoltageWithClosedCircuit",
+            "highFrequencyImpedance",
+            "lowFrequencyImpedance",
+            "mathematicalModel"
+          ]
+        },
+        "dateEnergyMeteringStarted": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "temperature": {
+          "type": "number",
+          "minimum": 0
+        },
+        "stateOfCharge": {
+          "type": "number"
+        },
+        "deepOfDischarge": {
+          "type": "number",
+          "minimum": 0
+        },
+        "stateOfHealth": {
+          "type": "number"
+        },
+        "activePower": {
+          "type": "number"
+        },
+        "reactivePower": {
+          "type": "number",
+          "minimum": 0
+        },
+        "current": {
+          "type": "number"
+        },
+        "openCircuitVoltage": {
+          "type": "number"
+        },
+        "inverterStatus": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "00-Onsector",
+              "01-PowerFailure/OnBattery",
+              "02-LossCommunication",
+              "03-BatteryFault",
+              "04-SystemShutDown",
+              "05-TensionDip",
+              "06-OverVoltage",
+              "07-VoltageDrop",
+              "08-VoltageIncrease",
+              "09-LineNoise",
+              "10-FrequencyVariation",
+              "11-TransientDistortion",
+              "12-HarmonicDistortion"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "dateObserved",
+    "stateOfCharge"
+  ]
+}
