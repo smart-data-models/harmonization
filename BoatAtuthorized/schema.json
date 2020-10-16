@@ -1,0 +1,226 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "schemaVersion": "0.0",
+  "$id": "https://github.com/smart-data-models/dataModel.Port/blob/master/BoatAuthorized/schema.json",
+  "title": "Boat Authorized schema",
+  "description": "The data model is intended to provide information on the boats authorized to operate within the port according to the ISO 8666 standard for Boat Category. This repository is created by type of category of boat (pleasure craft, trade, passengers, ...). For each type of category, a list of optional subtypes of category can be associated.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "BoatAuthorized"
+          ],
+          "description": "NGSI Entity type"
+        },
+        "dateLastReported": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "refSeaPort": {
+          "type": "string",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "refPointOfInterest": {
+          "type": "string",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "boatType": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "yatching",
+              "cargo",
+              "passenger",
+              "specialist",
+              "Tanker",
+              "fishing",
+              "war",
+              "historic"
+            ]
+          }
+        },
+        "boatSubType": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "canoe",
+              "zodiac",
+              "monoHull",
+              "catamaran",
+              "trimaran",
+              "yacht",
+              "gondola",
+              "sailboat",
+              "houseBoat",
+              "jetSki",
+              "bargeCarrier",
+              "containerCarrier",
+              "cargoCarrier",
+              "bulkCarrier",
+              "lngCarrier",
+              "lpgCarrier",
+              "butanerCarrier",
+              "timberCarrier",
+              "livestockCarrier",
+              "referCarrier",
+              "roroCarrier",
+              "CrudeCarrier",
+              "ProductCarrier",
+              "LiquefiedGasCarrier",
+              "ChemicalCarrier",
+              "tanker",
+              "cruise",
+              "ferrie",
+              "highSpeedVessel",
+              "CoastalFerrie",
+              "barge",
+              "bac",
+              "liner",
+              "harbourFerrie",
+              "pipeLayer",
+              "cableLayer",
+              "supplyShip",
+              "craneBarge",
+              "drillRig",
+              "productionPlatform",
+              "floatingStorageUnit",
+              "floatingProductionStorageUnit",
+              "researchVessel",
+              "salvageOperation",
+              "lightShip",
+              "anchorHandlingVessel",
+              "divingVessel",
+              "iceBreakerShip",
+              "dredger",
+              "buoyTenderBoat",
+              "mooringBoat",
+              "lifeBoat",
+              "flagshipBoat",
+              "fireBoat",
+              "pilotBoat",
+              "tugBoat",
+              "oceanographicBoat",
+              "factoryShip",
+              "trawler",
+              "seiner",
+              "longLiner",
+              "drifter",
+              "lineVessel",
+              "multipurposeVessel",
+              "fisheriesResearchVessel",
+              "artisanVessel",
+              "frigate",
+              "corvette",
+              "destroyer",
+              "cruiser",
+              "amphibiousAssaultShip",
+              "aircraftCarrier",
+              "helicopterCarrier",
+              "littoralCombatShip",
+              "mineSweeping",
+              "submarineAttack",
+              "submarineBallisticMissile",
+              "submarineCruiseMissile",
+              "speedBoat",
+              "hovercraft",
+              "tanker",
+              "canoe",
+              "galleon",
+              "caravel",
+              "carrack",
+              "cog",
+              "dhow",
+              "djong",
+              "fluyt",
+              "koch",
+              "pinisi",
+              "saillingShip",
+              "clipper",
+              "gabare",
+              "viking",
+              "paddleSteamer",
+              "galley",
+              "junk",
+              "other"
+            ]
+          }
+        },
+        "openingHoursSpecification": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "opens": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "closes": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "dayOfWeek": {
+                "type": "string",
+                "enum": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                  "PublicHolidays"
+                ]
+              },
+              "validFrom": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "validThrough": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "minItems": 1
+        },
+        "maxTonnage": {
+          "type": "number",
+          "minimum": 0
+        },
+        "minLength": {
+          "type": "number",
+          "minimum": 0
+        },
+        "maxLength": {
+          "type": "number",
+          "minimum": 0
+        },
+        "maxWidth": {
+          "type": "number",
+          "minimum": 0
+        },
+        "maxDraft": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "dateLastReported",
+    "refSeaPort"
+  ]
+}
