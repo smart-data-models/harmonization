@@ -1,0 +1,677 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/data-models/Transportation/CityWork/schema.json",
+  "title": "CityWork schema",
+  "description": "The Data Model is a contextual description of urban works carried out on a road axis and which can impact individual (Cars, motorcycle, bicycles, .…) or common transport (Tram, Bus, subway). It contains a geographic representation making it possible to locate its work from a specific JSON Object and at a more global level (Road segment, Road, District, ...) in order to assess the potential impacts on the circulation. A GeoJSON object may represent a region of space (a Geometry), a spatially-bounded entity (a Feature), or a list of features (a Feature Collection). refer to the document [geojson](https://tools.ietf.org/pdf/draft-ietf-geojson-03.pdf) for more information about the modelisation and the possible value.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "CityWork"
+          ],
+          "description": "NGSI Entity type"
+        },
+        "territorialArea": {
+          "type": "string"
+        },
+        "dateLastReported": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "workNumber": {
+          "type": "string"
+        },
+        "workState": {
+          "type": "string",
+          "enum": [
+            "pendingPlanning",
+            "planned",
+            "validatedInPlanning",
+            "pendingAuthorization",
+            "instructionInProgress",
+            "investigated",
+            "authorized",
+            "reject",
+            "open",
+            "pendingExtension",
+            "approved",
+            "nonCompliantOccupation",
+            "completed",
+            "draft",
+            "all",
+            "planningCompleted",
+            "canceled",
+            "pendingCancellation",
+            "pendingDocument",
+            "supported",
+            "editedDecrees",
+            "decreeToBeSigned",
+            "received"
+          ]
+        },
+        "workDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "openingHoursSpecification": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "opens": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "closes": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "dayOfWeek": {
+                "type": "string",
+                "enum": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                  "PublicHolidays"
+                ]
+              },
+              "validFrom": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "validThrough": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        },
+        "contractingAuthority": {
+          "type": "string"
+        },
+        "contactPoint": {
+          "type": "object"
+        },
+        "decrees": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "workLastDateUpdate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "mainContractingCompagny": {
+          "type": "string"
+        },
+        "othersContractingCompagny": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "workLevel": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "ground",
+              "underGround",
+              "surface",
+              "aerial",
+              "wall",
+              "roofing",
+              "mixed",
+              "other"
+            ]
+          }
+        },
+        "workTarget": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "roadsAndPublicDomain",
+              "roads",
+              "pavement",
+              "publicDomain",
+              "railway",
+              "tramway",
+              "busCorridor",
+              "publicTransport",
+              "bicyclePath",
+              "sideWalk",
+              "landScapedArea",
+              "infrastructure",
+              "suportStructures",
+              "riprap",
+              "streetParking",
+              "offStreetParking",
+              "cityMotorBike",
+              "cityBike",
+              "cityCar",
+              "cityScooter",
+              "electricityNetworks",
+              "gasNetworks",
+              "drinkingWater",
+              "sanitation",
+              "rainyWaters",
+              "urbanHeating",
+              "telecom-RMT-VideoNetworks",
+              "telecomNetworks",
+              "videoNetworks",
+              "rMTNetworks",
+              "opticalFibers",
+              "networks",
+              "copperCable",
+              "fireHydrants",
+              "CoringPenetrometry",
+              "publicDecorativeLighting",
+              "trafficSignalingRegulation",
+              "urbanFurniture",
+              "exploratoryWork",
+              "surfaceOccupation",
+              "historicalMonuments",
+              "frameRoof",
+              "speedReductionDevices",
+              "coldAndAirCon",
+              "generator",
+              "coldGroup",
+              "overheadLine",
+              "catainers",
+              "tagsAndPosters",
+              "papersCollection",
+              "vrd",
+              "movingHoistNacelleTruck",
+              "scaffolding",
+              "variousWorks",
+              "other"
+            ]
+          }
+        },
+        "workNature": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "construction",
+              "creation",
+              "renovation",
+              "refurbishment",
+              "survey",
+              "control",
+              "experimentation",
+              "counting",
+              "repair",
+              "renewal",
+              "extension",
+              "rehabilitation",
+              "landfill",
+              "reinforcement",
+              "consolidation",
+              "upgrading",
+              "maintenance",
+              "connection",
+              "staking",
+              "investigation",
+              "miscellaneousWorks",
+              "miscellaneousInstallation",
+              "cleaning",
+              "drivingSwitch",
+              "Installation-OR-layout",
+              "pruning",
+              "demolition",
+              "riprap",
+              "craneLifting",
+              "OverheadLinesWorksintervention",
+              "supportImplantation",
+              "additionalInvestigations",
+              "securedPerimeter",
+              "roadSign",
+              "siteInstallation",
+              "trenchOpening",
+              "ManholeOpeningToRestoreService",
+              "manholeOpening",
+              "safetyRailsInstallation",
+              "collection",
+              "pulling",
+              "MowingDeburring",
+              "filmShooting",
+              "safetyAndComplianceWork",
+              "surfaceOccupationAuthorization",
+              "brushCutting",
+              "treeCutting",
+              "tarring",
+              "replacement",
+              "tonnageExemption",
+              "other"
+            ]
+          }
+        },
+        "infrastructureFunction": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "distribution",
+              "collection",
+              "transportation",
+              "other"
+            ]
+          }
+        },
+        "encroachment": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "private",
+              "public",
+              "other"
+            ]
+          }
+        },
+        "typeOfInteventionRequest": {
+          "type": "string",
+          "enum": [
+            "authorizationRequest",
+            "urgentWorks",
+            "InterventionNotice",
+            "other"
+          ]
+        },
+        "workReason": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "landslide",
+              "rockfall",
+              "flood",
+              "waterLeak",
+              "gazLeak",
+              "powerCut",
+              "collapse",
+              "sagging",
+              "fire",
+              "derailment",
+              "other"
+            ]
+          }
+        },
+        "workZone": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "road",
+              "path",
+              "offRoad",
+              "sideWalk",
+              "bridge",
+              "tunnel",
+              "bicyclePath",
+              "busCorridor",
+              "tramwayLine",
+              "railwayLine",
+              "subwayLine",
+              "dock",
+              "parksGardens",
+              "beach",
+              "parking",
+              "heliport",
+              "harbor",
+              "airport",
+              "river",
+              "protectArea",
+              "rockyArea",
+              "floodArea",
+              "sevesoArea",
+              "riskArea",
+              "mountainousArea",
+              "other"
+            ]
+          }
+        },
+        "workDisposition": {
+          "type": "object",
+          "items": {
+            "properties": {
+              "disposition": {
+                "type": "string",
+                "enum": [
+                  "noRestriction",
+                  "sidewalkClosureOrReduction",
+                  "sidewalkClosure",
+                  "sidewalkReduction",
+                  "laneClosure",
+                  "laneReduction",
+                  "laneDeviation",
+                  "bicyclePathClosure",
+                  "bicyclePathReduction",
+                  "bicyclePathDeviation",
+                  "parkingModification",
+                  "parkingForbidden",
+                  "alternatingLights",
+                  "circulationManualControl",
+                  "speedReduction"
+                ],
+                "properties": {
+                  "startDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "endDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "dayOfWeek": {
+                    "type": "string",
+                    "enum": [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday",
+                      "Sunday",
+                      "PublicHolidays"
+                    ]
+                  },
+                  "comment": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "worksOtherImpact": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "isMobile": {
+          "type": "boolean"
+        },
+        "countOfDerogation": {
+          "type": "Number"
+        },
+        "derogation": {
+          "type": "object",
+          "items": {
+            "properties": {
+              "derogationType": {
+                "type": "string",
+                "properties": {
+                  "startDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "endDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "dayOfWeek": {
+                    "type": "string",
+                    "enum": [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday",
+                      "Sunday",
+                      "PublicHolidays"
+                    ]
+                  },
+                  "comment": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "isMainRoadImpactedHTR": {
+            "type": "boolean"
+          },
+          "countOfRoadImpacted": {
+            "type": "Number"
+          },
+          "roadImpacted": {
+            "type": "object",
+            "items": {
+              "properties": {
+                "roadImpact": {
+                  "type": "string",
+                  "properties": {
+                    "segmentImpact ": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "allowedVehicle": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "all Vehicle",
+                "firefighters",
+                "police",
+                "emergencyVehicle",
+                "companiesTrucks",
+                "bus",
+                "tramway",
+                "subway",
+                "car",
+                "trucks",
+                "bicycle",
+                "motorcycle",
+                "lorry",
+                "trailer",
+                "van",
+                "sweepingMachine"
+              ]
+            }
+          },
+          "maxAuthorizedTonnage": {
+            "type": "object",
+            "items": {
+              "properties": {
+                "roadImpact": {
+                  "type": "string",
+                  "properties": {
+                    "maxTonnage": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "countOfBusLineImpacted": {
+            "type": "Number"
+          },
+          "busImpacted": {
+            "type": "object",
+            "items": {
+              "properties": {
+                "lineImpact": {
+                  "type": "string",
+                  "properties": {
+                    "segmentImpact ": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "countOfSchoolBusLineImpacted": {
+            "type": "Number"
+          },
+          "schoolBusImpacted": {
+            "type": "object",
+            "items": {
+              "properties": {
+                "lineImpact": {
+                  "type": "string",
+                  "properties": {
+                    "segmentImpact ": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "countOfTramwayLineImpacted": {
+            "type": "Number"
+          },
+          "tramwayImpacted": {
+            "type": "object",
+            "items": {
+              "properties": {
+                "lineImpact": {
+                  "type": "string",
+                  "properties": {
+                    "segmentImpact ": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "countOfSubwayLineImpacted": {
+            "type": "Number"
+          },
+          "subwayImpacted": {
+            "type": "object",
+            "items": {
+              "properties": {
+                "lineImpact": {
+                  "type": "string",
+                  "properties": {
+                    "segmentImpact ": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "countOfRailwayLineImpacted": {
+            "type": "Number"
+          },
+          "railwayImpacted": {
+            "type": "object",
+            "items": {
+              "properties": {
+                "lineImpact": {
+                  "type": "string",
+                  "properties": {
+                    "segmentImpact ": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "countOfSchoolImpacted": {
+            "type": "Number"
+          },
+          "schoolImpacted": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "countOfStationImpacted": {
+            "type": "Number"
+          },
+          "stationImpacted": {
+            "type": "object",
+            "items": {
+              "properties": {
+                "stationType": {
+                  "type": "string",
+                  "properties": {
+                    "stationId": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "countOfEventImpacted": {
+            "type": "Number"
+          },
+          "eventsImpact": {
+            "type": "object",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "workDate",
+    "contractingDateLastUpdate",
+    "workZone"
+  ]
+}
