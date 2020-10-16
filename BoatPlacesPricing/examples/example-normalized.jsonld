@@ -1,0 +1,108 @@
+{
+  "id": "urn:ngsi-ld:BoatPlacePricing:BoatPlacePricing:MNCA-BPP-Range-FG",
+  "type": "BoatPlacePricing",
+  "name": {
+    "type": "Property",
+    "value": "Riviera-Port-NCE-SPAP-BPA-Range-FG"
+  },
+  "alternateName": {
+    "type": "Property",
+    "value": "Riviera Port - Pricing of the Places by Categories"
+  },
+  "description": {
+    "type": "Property",
+    "value": "Pricing of the Places by Categories"
+  },
+  "seeAlso": {
+    "type": "Property",
+    "value": "https://ccinicecotedazur/docs/tarifs-plaisance-yachting-ports-passage-2019"
+  },
+  "areaServed": {
+    "type": "Property",
+    "value": "Riviera Port"
+  },
+  "dateLastReported": {
+    "type": "DateTime",
+    "value": "2020-03-17T08:45:00Z",
+    "metadata": {
+      "TimeInstant": {
+        "type": "Text",
+        "value": "2020-03-17T08:45:00Z"
+      }
+    }
+  },
+  "refSeaPort": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:SeaPort:Riviera-Port-NCE-SP-001"
+  },
+  "spotCategoryRange": {
+    "type": "property",
+    "value": [
+      "F",
+      "G"
+    ]
+  },
+  "minLength": {
+    "type": "Property",
+    "value": 7
+  },
+  "maxLength": {
+    "type": "Property",
+    "value": 7.99
+  },
+  "maxWidth": {
+    "type": "Property",
+    "value": 2.80
+  },
+  "maxDraft": {
+    "type": "Property",
+    "value": 2.55
+  },
+  "validFrom": {
+    "type": "DateTime",
+    "value": "-05-01"
+  },
+  "validThrough": {
+    "type": "DateTime",
+    "value": "-09-30"
+  },
+  "period": {
+    "type": "Property",
+    "value": "season"
+  },
+  "passage": {
+    "type": "Property",
+    "value": {
+      "day": 29.45,
+      "week": 200.15,
+      "month": 821.20
+    }
+  },
+  "resident": {
+    "type": "Property",
+    "value": {
+      "month": 760.41,
+      "annual": 9125.00
+    }
+  },
+  "wintering": {
+    "type": "Property",
+    "value": {
+      "day": 27.00,
+      "week": 185.00,
+      "month": 775.00
+    }
+  },
+  "fairing": {
+    "type": "Property",
+    "value": {
+      "day": 17.30,
+      "week": 87.00,
+      "month": 260.90
+    }
+  },
+  "@context": [
+    "https://schema.lab.fiware.org/ld/context",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}

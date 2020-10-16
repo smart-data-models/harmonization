@@ -1,0 +1,187 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "schemaVersion": "0.0",
+  "$id": "https://github.com/smart-data-models/dataModel.Port/blob/master/BoatPlacePricing/schema.json",
+  "title": "Boat Place Pricing schema",
+  "description": "The purpose of the data model is to provide information on the pricing of mooring rings by category (length / Width). The information received relates only to pleasure boats and excludes commercial and passenger transport boats. The information on the Spot categories for boats is taken from the ISO 8666 standard.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "BoatPlacePricing"
+          ],
+          "description": "NGSI Entity type"
+        },
+        "dateLastReported": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "refSeaPort": {
+          "type": "string",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "refPointOfInterest": {
+          "type": "string",
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "spotCategoryRange": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F",
+              "G",
+              "H",
+              "I",
+              "J",
+              "K",
+              "L",
+              "M",
+              "N",
+              "O",
+              "P",
+              "Q",
+              "R",
+              "S",
+              "T1",
+              "T2",
+              "U",
+              "V",
+              "W",
+              "X",
+              "Y",
+              "Z",
+              "Z01",
+              "Z02",
+              "Z03",
+              "Z04",
+              "Z05",
+              "Z06",
+              "Z07",
+              "Z08",
+              "Z08",
+              "Z09",
+              "Z10",
+              "Z11",
+              "Z12",
+              "Z13",
+              "Z14",
+              "Z15",
+              "Z16",
+              "Z17"
+            ]
+          }
+        },
+        "minLength": {
+          "type": "number"
+        },
+        "maxLength": {
+          "type": "number"
+        },
+        "maxWidth": {
+          "type": "number"
+        },
+        "maxDraft": {
+          "type": "number"
+        },
+        "validFrom": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "validThrough": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "period": {
+          "type": "string",
+          "enum": [
+            "season",
+            "offSeason",
+            "summer",
+            "winter",
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "passage": {
+          "type": "object",
+          "properties": {
+            "day": {
+              "type": "number"
+            },
+            "week": {
+              "type": "number"
+            },
+            "month": {
+              "type": "number"
+            }
+          }
+        },
+        "resident": {
+          "type": "object",
+          "properties": {
+            "month": {
+              "type": "number"
+            },
+            "annual": {
+              "type": "number"
+            }
+          }
+        },
+        "wintering": {
+          "type": "object",
+          "properties": {
+            "day": {
+              "type": "number"
+            },
+            "week": {
+              "type": "number"
+            },
+            "month": {
+              "type": "number"
+            }
+          }
+        },
+        "fairing": {
+          "type": "object",
+          "properties": {
+            "day": {
+              "type": "number"
+            },
+            "week": {
+              "type": "number"
+            },
+            "month": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "id",
+    "type",
+    "location",
+    "dateLastReported",
+    "refSeaPort",
+    "spotCategoryRange",
+    "validFrom",
+    "validThrough"
+  ]
+}
