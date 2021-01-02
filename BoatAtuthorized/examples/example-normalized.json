@@ -1,0 +1,86 @@
+{
+	"id": "urn:ngsi-ld:BoatAuthorized:BoatAuthorized:MNCA-NCE-BA-001-yatching",
+	"type": "BoatAuthorized",
+	"name": {
+		"type": "Property",
+		"value": "Riviera-Port-NCE-BA-001-yatching"
+	},
+	"alternateName": {
+		"type": "Property",
+		"value": "Riviera Port - Autorized Boats in the port"
+	},
+	"description": {
+		"type": "Property",
+		"value": "List of Type and SubType of boats authorized to move and moor in the harbor"
+	},
+	"seeAlso": {
+		"type": "Property",
+		"value": "https://ccinicecotedazur/docs/port-nice_z-card_2015"
+	},
+	"areaServed": {
+		"type": "Property",
+		"value": "Nice Port"
+	},
+	"dateObserved": {
+		"type": "Property",
+		"value": "2020-01-01T00:00:01Z"
+	},
+	"refSeaPort": {
+		"type": "Relationship",
+		"object": "urn:ngsi-ld:SeaPort:Riviera-Port-NCE-SP-001"
+	},
+	"refBoatType": {
+		"type": "Property",
+		"value": "yatching"
+	},
+	"refBoatSubType": {
+		"type": "Property",
+		"value": ["monoHull", "catamaran", "yacht", "sailboat", "jetSki"]
+	},
+	"openingHoursSpecification": {
+		"type": "object",
+		"value": [{
+				"dayOfWeek": "Monday, Tuesday, Wednesday, Thursday, Friday",
+				"opens": "07.00",
+				"closes": "20.00"
+			},
+			{
+				"dayOfWeek": "Saturday",
+				"opens": "08.30",
+				"closes": "21.00"
+			},
+			{
+				"dayOfWeek": "Sunday",
+				"opens": "8.30",
+				"closes": "20.00"
+			},
+			{
+				"dayOfWeek": "PublicHolidays",
+				"opens": "8.30",
+				"closes": "19.30"
+			}
+		],
+		"validFrom": "-01-01",
+		"validThrough": "-31-12"
+	},
+	"maxTonnage": {
+		"type": "Property",
+		"value": 3855
+	},
+	"minLength": {
+		"type": "Property",
+		"value": 3
+	},
+	"maxLength": {
+		"type": "Property",
+		"value": 35
+	},
+	"maxWidth": {
+		"type": "Property",
+		"value": 15
+	},
+	"maxDraft": {
+		"type": "Property",
+		"value": 6.00
+	}
+}

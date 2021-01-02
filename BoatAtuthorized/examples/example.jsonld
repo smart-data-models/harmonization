@@ -1,0 +1,94 @@
+{
+  "id": "urn:ngsi-ld:BoatAuthorized:BoatAuthorized:MNCA-NCE-BA-001-yatching",
+  "type": "BoatAuthorized",
+  "name": "Riviera-Port-NCE-BA-001-yatching",
+  "alternateName": "Riviera Port - Autorized Boats in the port",
+  "description": "List of Type and SubType of boats authorized to move and moor in the harbor",
+  "seeAlso": "https://ccinicecotedazur/docs/port-nice_z-card_2015",
+  "areaServed": "Nice Port",
+  "dateObserved": "2020-01-01T00:00:01Z",
+  "refSeaPort": "urn:ngsi-ld:SeaPort:Riviera-Port-NCE-SP-001",
+  "refBoatType": "yatching",
+  "refBoatSubType": [
+    "monoHull",
+    "catamaran",
+    "yacht",
+    "sailboat",
+    "jetSki"
+  ],
+  "openingHoursSpecification": [
+    {
+      "dayOfWeek": "Monday",
+      "opens": "07:00:00",
+      "closes": "20:00:00",
+      "validFrom": "2021-01-01T00:00:00",
+      "validThrough": "2021-12-31T23:59:59"
+    },
+    {
+      "dayOfWeek": "Tuesday",
+      "opens": "07:00:00",
+      "closes": "20:00:00",
+      "validFrom": "2021-01-01T00:00:00",
+      "validThrough": "2021-12-31T23:59:59"
+    },
+    {
+      "dayOfWeek": "Wednesday",
+      "opens": "07:00:00",
+      "closes": "20:00:00",
+      "validFrom": "2021-01-01T00:00:00",
+      "validThrough": "2021-12-31T23:59:59"
+    },
+    {
+      "dayOfWeek": "Thursday",
+      "opens": "07:00:00",
+      "closes": "20:00:00",
+      "validFrom": "2021-01-01T00:00:00",
+      "validThrough": "2021-12-31T23:59:59"
+    },
+    {
+      "dayOfWeek": "Friday",
+      "opens": "07:00:00",
+      "closes": "20:00:00",
+      "validFrom": "2021-01-01T00:00:00",
+      "validThrough": "2021-12-31T23:59:59"
+    },
+    {
+      "dayOfWeek": "Saturday",
+      "opens": "08:30:00",
+      "closes": "21:00:00",
+      "validFrom": "2021-01-01T00:00:00",
+      "validThrough": "2021-12-31T23:59:59"
+    },
+    {
+      "dayOfWeek": "Sunday",
+      "opens": "08:30:00",
+      "closes": "20:00:00",
+      "validFrom": "2021-01-01T00:00:00",
+      "validThrough": "2021-12-31T23:59:59"
+    },
+    {
+      "dayOfWeek": "PublicHolidays",
+      "opens": "08:30:00",
+      "closes": "19:30:00",
+      "validFrom": "2021-01-01T00:00:00",
+      "validThrough": "2021-12-31T23:59:59"
+    }
+  ],
+  "maxTonnage": 3855,
+  "minLength": 3,
+  "maxLength": 35,
+  "maxWidth": 15,
+  "maxDraft": 6.00,
+  "dateLastReported": "2021-12-31T23:59:59",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      23,
+      45
+    ]
+  },
+  "@context": [
+    "https://schema.lab.fiware.org/ld/context",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}
