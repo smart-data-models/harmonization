@@ -14,40 +14,38 @@
     },
     {
       "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "ElectroMagneticObserved"
-          ],
-          "description": "NGSI Entity type"
-        },
-        "refDevice": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-        },
-        "refpointOfInterest": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-        },
-        "dateObserved": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "dateObservedFrom": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "dateObservedTo": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "eMF": {
-          "type": "number",
-          "minimum": 0
-        },
-        "reliability": {
-          "type": "number",
-          "minimum": 0,
-          "maximum": 100
-        }
+        "type": "string",
+        "enum": [
+          "ElectroMagneticObserved"
+        ],
+        "description": "NGSI Entity type"
+      },
+      "refDevice": {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+      },
+      "refpointOfInterest": {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+      },
+      "dateObserved": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "dateObservedFrom": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "dateObservedTo": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "eMF": {
+        "type": "number",
+        "minimum": 0
+      },
+      "reliability": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100
       }
     }
   ],
