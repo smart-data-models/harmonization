@@ -65,5 +65,15 @@
   "availableSpotNumber": {
     "type": "Property",
     "value": 3
+  },
+  "location": {
+    "type": "Geoproperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        123,
+        45
+      ]
+    }
   }
 }

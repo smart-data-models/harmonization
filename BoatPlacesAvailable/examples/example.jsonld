@@ -17,7 +17,13 @@
   "maxWidth": 2.80,
   "maxDraft": 2.55,
   "totalCapacitySpotNumber": 10,
-  "availableSpotNumber": 3,
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      123,
+      45
+    ]
+  },
   "@context": [
     "https://schema.lab.fiware.org/ld/context",
     "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"

@@ -17,6 +17,12 @@
   "maxWidth": 2.80,
   "maxDraft": 2.55,
   "totalCapacitySpotNumber": 10,
-  "availableSpotNumber": 3
-
+  "availableSpotNumber": 3,
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      123,
+      45
+    ]
+  }
 }

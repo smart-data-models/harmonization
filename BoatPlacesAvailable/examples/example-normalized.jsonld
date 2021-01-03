@@ -66,6 +66,16 @@
     "type": "Property",
     "value": 3
   },
+  "location": {
+    "type": "Geoproperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        123,
+        45
+      ]
+    }
+  },
   "@context": [
     "https://schema.lab.fiware.org/ld/context",
     "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
