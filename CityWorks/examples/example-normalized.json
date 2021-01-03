@@ -268,7 +268,7 @@
   "derogation": {
     "type": "Property",
     "value": {
-      "Work Night during Workday": {
+      "Work Nigth during Workday": {
         "type": "Property",
         "value": {
           "startDate": "2020-05-11T20:30:00Z",
@@ -454,9 +454,5 @@
       "urn:ngsi-ld:events:MNCA-EV-JazzCimiez",
       "NiceMarathon"
     ]
-  },
-  "@context": [
-    "https://schema.lab.fiware.org/ld/context",
-    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
-  ]
+  }
 }

@@ -422,7 +422,6 @@
         },
         "derogation": {
           "type": "object",
-          "items": {
             "properties": {
               "derogationType": {
                 "type": "string",
