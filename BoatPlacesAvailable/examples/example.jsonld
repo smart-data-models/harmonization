@@ -1,0 +1,25 @@
+{
+  "id": "urn:ngsi-ld:BoatPlaceAvailable:BoatPlaceAvailable:MNCA-BPA-Range-FG",
+  "type": "BoatPlaceAvailable",
+  "name": "Riviera-Port-NCE-SPAP-BPA-Range-FG",
+  "alternateName": "Riviera Port - Available places",
+  "description": "Availability places",
+  "seeAlso": "https://ccinicecotedazur/docs/tarifs-plaisance-yachting-ports-passage-2019",
+  "areaServed": "Riviera Port",
+  "dateObserved": "2020-03-17T08:45:00Z",
+  "refSeaPort": "urn:ngsi-ld:SeaPort:Riviera-Port-NCE-SP-001",
+  "spotCategoryRange": [
+    "F",
+    "G"
+  ],
+  "minLength": 7,
+  "maxLength": 7.99,
+  "maxWidth": 2.80,
+  "maxDraft": 2.55,
+  "totalCapacitySpotNumber": 10,
+  "availableSpotNumber": 3,
+  "@context": [
+    "https://schema.lab.fiware.org/ld/context",
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  ]
+}
