@@ -57,14 +57,14 @@
             4
           ]
         },
-        "parentStation   ": {
+        "parentStation": {
           "type": "string"
         },
-        "levelId   ": {
-          "type": "Number"
+        "levelId": {
+          "type": "number"
         },
         "platformCode   ": {
-          "type": "Number"
+          "type": "number"
         },
         "zoneId": {
           "type": "string"
@@ -78,47 +78,7 @@
           ]
         },
         "openingHoursSpecification": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "opens": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "closes": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "dayOfWeek": {
-                "type": "string",
-                "enum": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday",
-                  "PublicHolidays"
-                ]
-              },
-              "validFrom": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "validThrough": {
-                "type": "string",
-                "format": "date-time"
-              }
-            }
-          },
-          "minItems": 1
-        },
-        "owner": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/DateTime-Commons/properties/openingHoursSpecification"
         },
         "contractingAuthority": {
           "type": "string"
@@ -127,12 +87,12 @@
           "type": "string"
         },
         "contactPoint": {
-          "type": "object"
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Contact-Commons/properties/contactPoint"
         },
         "webSite": {
           "type": "string"
         },
-        "instalationMode": {
+        "installationMode": {
           "type": "string",
           "enum": [
             "ground",
@@ -186,30 +146,30 @@
           }
         },
         "stationConnected": {
-          "type": "object",
+          "type": "array",
           "items": {
+            "type": "object",
             "properties": {
               "stationType": {
                 "type": "string",
                 "enum": [
-                  "tram",
-                  "subway",
-                  "rail",
-                  "bus",
-                  "ferry",
-                  "cableTram",
                   "aerialLift",
+                  "bus",
+                  "cableTram",
+                  "ferry",
                   "funicular",
-                  "trolleybus",
-                  "monorail"
-                ],
-                "properties": {
-                  "linesConnected ": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  }
+                  "monorail",
+                  "rail",
+                  "subway",
+                  "train",
+                  "tram",
+                  "trolleybus"
+                ]
+              },
+              "linesConnected ": {
+                "type": "array",
+                "items": {
+                  "type": "string"
                 }
               }
             }
@@ -282,7 +242,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "architecte": {
+          "architect": {
             "type": "string"
           },
           "featuredArtist": {
