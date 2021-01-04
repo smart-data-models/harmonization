@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "schemaVersion": "0.0",
-  "$id": "https://smart-data-models.github.io/data-models/Transportation/Station/schema.json",
+  "$id": "https://smart-data-models.github.io/data-models/Transportation/TransportStation/schema.json",
   "title": "Station schema",
   "description": "The data model is a general description of urban stations (Metro, Bus, Tram, Heliport, ...) according to the GFTS standard https://developers.google.com/transit/gtfs/reference/#stopstxt, as well the detailed description of these (means of access, platform, assistance, ...).",
   "type": "object",
@@ -17,7 +17,7 @@
         "type": {
           "type": "string",
           "enum": [
-            "Station"
+            "TransportStation"
           ],
           "description": "NGSI Entity type"
         },
