@@ -14,426 +14,424 @@
     },
     {
       "properties": {
-        "type": {
+        "type": "string",
+        "enum": [
+          "StorageBatteryDevice"
+        ],
+        "description": "NGSI Entity type"
+      },
+      "refDevice": {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+      },
+      "refPointOfInterest": {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+      },
+      "dateLastReported": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "batteryAssessmentMethods": {
+        "type": "string",
+        "enum": [
+          "dischargeTest",
+          "ampereHourMetry",
+          "electrolyteDensity",
+          "quiescentVoltageWithOpenCircuit",
+          "operatingVoltageWithClosedCircuit",
+          "highFrequencyImpedance",
+          "lowFrequencyImpedance",
+          "mathematicalModel"
+        ],
+        "minItems": 0,
+        "uniqueItems": true
+      },
+      "brandName": {
+        "type": "string"
+      },
+      "modelName": {
+        "type": "string"
+      },
+      "manufacturerName": {
+        "type": "string"
+      },
+      "serialNumber": {
+        "type": "string"
+      },
+      "application": {
+        "type": "array",
+        "items": {
           "type": "string",
           "enum": [
-            "StorageBatteryDevice"
-          ],
-          "description": "NGSI Entity type"
-        },
-        "refDevice": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-        },
-        "refPointOfInterest": {
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-        },
-        "dateLastReported": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "batteryAssessmentMethods": {
+            "electricMobility",
+            "energyStorage",
+            "emergencyStorage",
+            "lighting",
+            "industrialStorage",
+            "houseHoldStorage",
+            "robotics",
+            "production",
+            "other"
+          ]
+        }
+      },
+      "typeOfUse": {
+        "type": "string",
+        "enum": [
+          "indoor",
+          "outdoor",
+          "mixed",
+          "other"
+        ]
+      },
+      "installationMode": {
+        "type": "string",
+        "enum": [
+          "ground",
+          "underGround",
+          "aerial",
+          "wall",
+          "pole",
+          "roofing",
+          "other"
+        ]
+      },
+      "installationCondition": {
+        "type": "array",
+        "items": {
           "type": "string",
           "enum": [
-            "dischargeTest",
-            "ampereHourMetry",
-            "electrolyteDensity",
-            "quiescentVoltageWithOpenCircuit",
-            "operatingVoltageWithClosedCircuit",
-            "highFrequencyImpedance",
-            "lowFrequencyImpedance",
-            "mathematicalModel"
-          ],
-          "minItems": 0,
-          "uniqueItems": true
-        },
-        "brandName": {
+            "extremeHeat",
+            "extremeCold",
+            "extremeHumidity",
+            "extremeClimate",
+            "desert",
+            "sand",
+            "marine",
+            "saline",
+            "dust",
+            "seismic",
+            "other"
+          ]
+        }
+      },
+      "possibilityOfUse": {
+        "type": "string",
+        "enum": [
+          "stationary",
+          "mobile",
+          "mixed",
+          "other"
+        ]
+      },
+      "batteryType": {
+        "type": "string",
+        "enum": [
+          "lead",
+          "lead-AGM",
+          "Ni-Cd",
+          "Ni-MH",
+          "Ni-Zn",
+          "Na-NiCl2(Zebra)",
+          "alkaline",
+          "Li-Ion",
+          "Li-Po",
+          "Li-Po4",
+          "LMP",
+          "Li-Air",
+          "gel",
+          "other"
+        ]
+      },
+      "rechargeEnergySource": {
+        "type": "string",
+        "enum": [
+          "electric",
+          "hydraulic",
+          "windTurbine",
+          "other"
+        ]
+      },
+      "typeEnergySource": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "network",
+            "photovoltaic",
+            "generator",
+            "sea",
+            "river",
+            "dam",
+            "fall",
+            "waterTurbine",
+            "wind",
+            "other"
+          ]
+        }
+      },
+      "documentation": {
+        "type": "string"
+      },
+      "owners": {
+        "type": "array",
+        "items": {
           "type": "string"
         },
-        "modelName": {
+        "dimension": {
+          "type": "object",
+          "properties": {
+            "height": {
+              "type": "number",
+              "minimum": 0
+            },
+            "width": {
+              "type": "number",
+              "minimum": 0
+            },
+            "depth": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "weight": {
+          "type": "number",
+          "minimum": 0
+        },
+        "protectionIP": {
           "type": "string"
         },
-        "manufacturerName": {
-          "type": "string"
+        "protectionIK": {
+          "type": "number"
         },
-        "serialNumber": {
-          "type": "string"
+        "operatingTemperature": {
+          "type": "object",
+          "properties": {
+            "storage": {
+              "type": "number",
+              "minimum": 0
+            },
+            "discharge": {
+              "type": "number",
+              "minimum": 0
+            },
+            "charge": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
         },
-        "application": {
+        "nominalVoltage": {
+          "type": "number"
+        },
+        "nominalAmpere": {
+          "type": "number"
+        },
+        "nominalFrequency": {
+          "type": "number"
+        },
+        "nominalCapacity": {
+          "type": "number"
+        },
+        "storableEnergy": {
+          "type": "number"
+        },
+        "usableEnergy": {
+          "type": "number"
+        },
+        "operatingVoltage": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "operatingAmpere": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "operatingFrequency": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "massEnergyDensity": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "volEnergyDensity": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "maxOutputPower": {
+          "type": "number"
+        },
+        "peakPower": {
+          "type": "number"
+        },
+        "durationPeakPower": {
+          "type": "number"
+        },
+        "communication": {
           "type": "array",
           "items": {
             "type": "string",
             "enum": [
-              "electricMobility",
-              "energyStorage",
-              "emergencyStorage",
-              "lighting",
-              "industrialStorage",
-              "houseHoldStorage",
-              "robotics",
-              "production",
+              "CAN 2.0 B",
+              "RS485",
+              "RS485Inverter",
+              "RS485BMS",
+              "maintenanceInterface",
+              "dryContactTerminal",
               "other"
             ]
           }
         },
-        "typeOfUse": {
-          "type": "string",
-          "enum": [
-            "indoor",
-            "outdoor",
-            "mixed",
-            "other"
-          ]
+        "operatingAltitude": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
         },
-        "installationMode": {
-          "type": "string",
-          "enum": [
-            "ground",
-            "underGround",
-            "aerial",
-            "wall",
-            "pole",
-            "roofing",
-            "other"
-          ]
+        "averageLife": {
+          "type": "number"
         },
-        "installationCondition": {
+        "lifeCycleNumber": {
+          "type": "object",
+          "properties": {
+            "min": {
+              "type": "number",
+              "minimum": 0
+            },
+            "max": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        "toolBMS": {
+          "type": "Boolean"
+        },
+        "chargingModeAllowed": {
           "type": "array",
           "items": {
             "type": "string",
             "enum": [
-              "extremeHeat",
-              "extremeCold",
-              "extremeHumidity",
-              "extremeClimate",
-              "desert",
-              "sand",
-              "marine",
-              "saline",
-              "dust",
-              "seismic",
-              "other"
+              "normal",
+              "quick",
+              "fast"
             ]
           }
         },
-        "possibilityOfUse": {
-          "type": "string",
-          "enum": [
-            "stationary",
-            "mobile",
-            "mixed",
-            "other"
-          ]
+        "overloadAccepted": {
+          "type": "Boolean"
         },
-        "batteryType": {
-          "type": "string",
-          "enum": [
-            "lead",
-            "lead-AGM",
-            "Ni-Cd",
-            "Ni-MH",
-            "Ni-Zn",
-            "Na-NiCl2(Zebra)",
-            "alkaline",
-            "Li-Ion",
-            "Li-Po",
-            "Li-Po4",
-            "LMP",
-            "Li-Air",
-            "gel",
-            "other"
-          ]
+        "overloadAcceptedTime": {
+          "type": "DateTime"
         },
-        "rechargeEnergySource": {
-          "type": "string",
-          "enum": [
-            "electric",
-            "hydraulic",
-            "windTurbine",
-            "other"
-          ]
+        "selfDischargeRate": {
+          "type": "number"
         },
-        "typeEnergySource": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "enum": [
-              "network",
-              "photovoltaic",
-              "generator",
-              "sea",
-              "river",
-              "dam",
-              "fall",
-              "waterTurbine",
-              "wind",
-              "other"
-            ]
+        "capacityCnnn": {
+          "type": "object",
+          "properties": {
+            "C001": {
+              "type": "number",
+              "minimum": 0
+            },
+            "C005": {
+              "type": "number",
+              "minimum": 0
+            },
+            "C010": {
+              "type": "number",
+              "minimum": 0
+            },
+            "C020": {
+              "type": "number",
+              "minimum": 0
+            },
+            "C050": {
+              "type": "number",
+              "minimum": 0
+            },
+            "C100": {
+              "type": "number",
+              "minimum": 0
+            }
           }
         },
-        "documentation": {
-          "type": "string"
+        "roundTripEfficiency": {
+          "type": "number"
         },
-        "owners": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "dimension": {
-            "type": "object",
-            "properties": {
-              "height": {
-                "type": "number",
-                "minimum": 0
-              },
-              "width": {
-                "type": "number",
-                "minimum": 0
-              },
-              "depth": {
-                "type": "number",
-                "minimum": 0
-              }
-            }
-          },
-          "weight": {
-            "type": "number",
-            "minimum": 0
-          },
-          "protectionIP": {
-            "type": "string"
-          },
-          "protectionIK": {
-            "type": "number"
-          },
-          "operatingTemperature": {
-            "type": "object",
-            "properties": {
-              "storage": {
-                "type": "number",
-                "minimum": 0
-              },
-              "discharge": {
-                "type": "number",
-                "minimum": 0
-              },
-              "charge": {
-                "type": "number",
-                "minimum": 0
-              }
-            }
-          },
-          "nominalVoltage": {
-            "type": "number"
-          },
-          "nominalAmpere": {
-            "type": "number"
-          },
-          "nominalFrequency": {
-            "type": "number"
-          },
-          "nominalCapacity": {
-            "type": "number"
-          },
-          "storableEnergy": {
-            "type": "number"
-          },
-          "usableEnergy": {
-            "type": "number"
-          },
-          "operatingVoltage": {
-            "type": "object",
-            "properties": {
-              "min": {
-                "type": "number",
-                "minimum": 0
-              },
-              "max": {
-                "type": "number",
-                "minimum": 0
-              }
-            }
-          },
-          "operatingAmpere": {
-            "type": "object",
-            "properties": {
-              "min": {
-                "type": "number",
-                "minimum": 0
-              },
-              "max": {
-                "type": "number",
-                "minimum": 0
-              }
-            }
-          },
-          "operatingFrequency": {
-            "type": "object",
-            "properties": {
-              "min": {
-                "type": "number",
-                "minimum": 0
-              },
-              "max": {
-                "type": "number",
-                "minimum": 0
-              }
-            }
-          },
-          "massEnergyDensity": {
-            "type": "object",
-            "properties": {
-              "min": {
-                "type": "number",
-                "minimum": 0
-              },
-              "max": {
-                "type": "number",
-                "minimum": 0
-              }
-            }
-          },
-          "volEnergyDensity": {
-            "type": "object",
-            "properties": {
-              "min": {
-                "type": "number",
-                "minimum": 0
-              },
-              "max": {
-                "type": "number",
-                "minimum": 0
-              }
-            }
-          },
-          "maxOutputPower": {
-            "type": "number"
-          },
-          "peakPower": {
-            "type": "number"
-          },
-          "durationPeakPower": {
-            "type": "number"
-          },
-          "communication": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "CAN 2.0 B",
-                "RS485",
-                "RS485Inverter",
-                "RS485BMS",
-                "maintenanceInterface",
-                "dryContactTerminal",
-                "other"
-              ]
-            }
-          },
-          "operatingAltitude": {
-            "type": "object",
-            "properties": {
-              "min": {
-                "type": "number",
-                "minimum": 0
-              },
-              "max": {
-                "type": "number",
-                "minimum": 0
-              }
-            }
-          },
-          "averageLife": {
-            "type": "number"
-          },
-          "lifeCycleNumber": {
-            "type": "object",
-            "properties": {
-              "min": {
-                "type": "number",
-                "minimum": 0
-              },
-              "max": {
-                "type": "number",
-                "minimum": 0
-              }
-            }
-          },
-          "toolBMS": {
-            "type": "Boolean"
-          },
-          "chargingModeAllowed": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "normal",
-                "quick",
-                "fast"
-              ]
-            }
-          },
-          "overloadAccepted": {
-            "type": "Boolean"
-          },
-          "overloadAcceptedTime": {
-            "type": "DateTime"
-          },
-          "selfDischargeRate": {
-            "type": "number"
-          },
-          "capacityCnnn": {
-            "type": "object",
-            "properties": {
-              "C001": {
-                "type": "number",
-                "minimum": 0
-              },
-              "C005": {
-                "type": "number",
-                "minimum": 0
-              },
-              "C010": {
-                "type": "number",
-                "minimum": 0
-              },
-              "C020": {
-                "type": "number",
-                "minimum": 0
-              },
-              "C050": {
-                "type": "number",
-                "minimum": 0
-              },
-              "C100": {
-                "type": "number",
-                "minimum": 0
-              }
-            }
-          },
-          "roundTripEfficiency": {
-            "type": "number"
-          },
-          "chargeDischargeReactivity": {
-            "type": "number"
-          },
-          "chargePower": {
-            "type": "number"
-          },
-          "chargeEfficiency": {
-            "type": "number"
-          },
-          "maximumVoltageEOC": {
-            "type": "number"
-          },
-          "dischargePower": {
-            "type": "number"
-          },
-          "dischargeEfficiency": {
-            "type": "number"
-          },
-          "minimumVoltageEOD": {
-            "type": "number"
-          }
+        "chargeDischargeReactivity": {
+          "type": "number"
+        },
+        "chargePower": {
+          "type": "number"
+        },
+        "chargeEfficiency": {
+          "type": "number"
+        },
+        "maximumVoltageEOC": {
+          "type": "number"
+        },
+        "dischargePower": {
+          "type": "number"
+        },
+        "dischargeEfficiency": {
+          "type": "number"
+        },
+        "minimumVoltageEOD": {
+          "type": "number"
         }
       }
     }
