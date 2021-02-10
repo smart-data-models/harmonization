@@ -38,6 +38,10 @@
     "week": 87.00,
     "month": 260.90
   },
+  "location": {
+    "type": "Polygon",
+    "coordinates": [[[100, 0], [101, 0], [101, 1], [100, 1], [100, 0]]]
+  },
   "@context": [
     "https://schema.lab.fiware.org/ld/context",
     "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
