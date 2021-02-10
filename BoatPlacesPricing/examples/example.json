@@ -1,0 +1,41 @@
+{
+  "id": "urn:ngsi-ld:BoatPlacePricing:BoatPlacePricing:MNCA-BPP-Range-FG",
+  "type": "BoatPlacePricing",
+  "name": "Riviera-Port-NCE-SPAP-BPA-Range-FG",
+  "alternateName": "Riviera Port - Pricing of the Places by Categories",
+  "description": "Pricing of the Places by Categories",
+  "seeAlso": "https://ccinicecotedazur/docs/tarifs-plaisance-yachting-ports-passage-2019",
+  "areaServed": "Riviera Port",
+  "dateLastReported": "2020-03-17T08:45:00Z",
+  "refSeaPort": "urn:ngsi-ld:SeaPort:Riviera-Port-NCE-SP-001",
+  "spotCategoryRange": [
+    "F",
+    "G"
+  ],
+  "minLength": 7,
+  "maxLength": 7.99,
+  "maxWidth": 2.80,
+  "maxDraft": 2.55,
+  "validFrom": "2021-01-01T17:21:20Z",
+  "validThrough": "2021-02-10T17:21:20Z",
+  "period": "season",
+  "passage": {
+    "day": 29.45,
+    "week": 200.15,
+    "month": 821.20
+  },
+  "resident": {
+    "month": 760.41,
+    "annual": 9125.00
+  },
+  "wintering": {
+    "day": 27.00,
+    "week": 185.00,
+    "month": 775.00
+  },
+  "fairing": {
+    "day": 17.30,
+    "week": 87.00,
+    "month": 260.90
+  }
+}

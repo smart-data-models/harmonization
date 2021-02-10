@@ -95,9 +95,5 @@
       "week": 87.00,
       "month": 260.90
     }
-  },
-  "@context": [
-    "https://schema.lab.fiware.org/ld/context",
-    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
-  ]
+  }
 }

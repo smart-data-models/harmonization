@@ -1,0 +1,62 @@
+notesHeader:
+  Method to design your repository of Boat Pricing*
+    To describe the different pricing by category (A to Z17) in the section *Information about pricing*, the use of a list is necessary when writing the record.
+    Depending on the port configuration, a record will be created by `spotCategoryRange` to determine the pricing for a period as repository.
+    Two scenarios are possible
+    - Scenario 1. Definition of the length range on a single category . `spotCategoryRange`	= ['F'], Boats accepted: length 7.00 to 7.49 and max width =< 2.70. ['F']  length 7.00 to 7.49 / max width =< 2.70
+    - Scenario 2. Definition of the length range with consecutive categories.
+                 `spotCategoryRange`	= ['F', 'G'], Boats accepted: length 7.00 to 7.99 and max width =< 2.80.'F' gives maxLength from 7.00 to 7.49 and maxWidth 2.70,  'G' gives maxLength from 7.50 to 7.99 and maxWidth 2.80
+notesMiddle:
+  Additional Information about this Data Model*
+    It can be used with the following data Model.
+    - **SeaPort** to provide information to the port about authorized Boat in the port.
+
+    This Data Model is complementary to the Data Model **BoatPlacesAvailable**.
+
+    Data repository (ISO 8666 standard)**
+    *Categorie Length Max 	Width Max*
+    A		  4.99		 2.00
+    B		  5.49		 2.15
+    C		  5.99		 2.30
+    D		  6.49		 2.45
+    E		  6.99		 2.60
+    F		  7.49		 2.80
+    G		  7.99		 2.80
+    H		  8.49		 2.95
+    I		  8.99		 3.10
+    J		  9.49		 3.25
+    K		  9.99		 3.40
+    L		 10.49		 3.55
+    M		 10.99		 3.70
+    N		 11.49		 3.85
+    O		 11.99		 4.00
+    P		 12.99		 4.30
+    Q		 13.99		 4.60
+    R		 15.99		 4.90
+    S		 17.99		 5.20
+    T1		 20.99		 5.60
+    T2		 23.99		 6.00
+    U		 28.99		 7.00
+    V		 33.99		 8.00
+    W		 38.99		 9.00
+    X		 43.99		10.00
+    Y		 48.99		11.00
+    Z		 53.99		12.00
+    Z01		 58.99		13.00
+    Z02		 64.99		14.00
+    Z03		 71.99		15.00
+    Z04		 78.99		16.00
+    Z05		 85.99		17.00
+    Z06		 92.99		18.00
+    Z07		 99.99		19.00
+    Z08		106.99		20.00
+    Z09		113.99		21.00
+    Z10		120.99		22.00
+    Z11		127.99		23.00
+    Z12		134.99		24.00
+    Z13		142.99		25.00
+    Z14		150.99		26.00
+    Z15		158.99		27.00
+    Z16		166.99		28.00
+    Z17		174.99		29.00
+notesFooter:

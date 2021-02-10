@@ -19,22 +19,50 @@
           "enum": [
             "BoatPlacePricing"
           ],
-          "description": "NGSI Entity type"
+          "description": "Property. NGSI Entity type. It has to be BoatPlacePricing"
         },
         "dateLastReported": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. A timestamp which denotes the last time when the device successfully reported data. The date and time of this observation in ISO8601 UTCformat"
         },
         "refSeaPort": {
+           "anyOf": [
+        {
           "type": "string",
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+          "description": "Property. Identifier format of any NGSI entity"
+        },
+        {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. Identifier format of any NGSI entity"
+        }
+      ],
+          "description": "Relationship. Model:'https://schema.org/URL'. Reference to the entity [Seaport](https://github.com/smart-data-models/dataModel.Port/blob/master/Seaport/doc/spec.md) to use as main link"
         },
         "refPointOfInterest": {
+           "anyOf": [
+        {
           "type": "string",
-          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+          "description": "Property. Identifier format of any NGSI entity"
+        },
+        {
+          "type": "string",
+          "format": "uri",
+          "description": "Property. Identifier format of any NGSI entity"
+        }
+      ],
+         "description": "Relationship. Model:'https://schema.org/URL'. Reference to a [PointOfInterest](https://github.com/smart-data-models/dataModel.PointOfInterest/blob/master/PointOfInterest/doc/spec.md) linked with the Repository"
         },
         "spotCategoryRange": {
           "type": "array",
+          "description": "Property. List from the lowest to the highest categories: A combination of them. Enum:'A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T1, T2, U, V, W, X, Y, Z, Z01, Z02, Z03, Z04, Z05, Z06, Z07, Z08, Z08, Z09, Z10, Z11, Z12, Z13, Z14, Z15, Z16, Z17'",
           "items": {
             "type": "string",
             "enum": [
@@ -87,39 +115,47 @@
           }
         },
         "minLength": {
-          "type": "number"
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/number'. Minimum length allowed to access the spot. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . Units:'metres'"
         },
         "maxLength": {
-          "type": "number"
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/number'. Maximum length allowed to access the spot. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . Units:'metres'"
         },
         "maxWidth": {
-          "type": "number"
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/width'. Maximum width allowed to access the spot. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . Units:'metres'"
         },
         "maxDraft": {
-          "type": "number"
+          "type": "number",
+          "description": "Property. Model:'https://schema.org/Number'. Maximum draft allowed to access the spot. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes) . Units:'metres'"
         },
         "validFrom": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. Start date and time of the pricing rules."
         },
         "validThrough": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. Model:'https://schema.org/DateTime'. End date and time of the pricing rules."
         },
         "period": {
           "type": "string",
+          "description": "Property. Model:'https://schema.org/DateTime'. Type of period defined the date From and Through: A free text or a unique value of the different combination allowed 'season / offSeason' - 'summer / winter' - 'low / medium / high'. enum:'high, low, medium, offSeason, season, summer, winter'",
           "enum": [
-            "season",
-            "offSeason",
-            "summer",
-            "winter",
+            "high",
             "low",
             "medium",
-            "high"
+            "offSeason",
+            "season",
+            "summer",
+            "winter"
           ]
         },
         "passage": {
           "type": "object",
+          "description": "Property. Model:'https://schema.org/StructuredValue'. Ticket price of the place for passing boats for this category / period. A structured value with 3 subproperties where each items is a string in the format `key` : `price` in Euro €",
           "properties": {
             "day": {
               "type": "number"
@@ -134,6 +170,7 @@
         },
         "resident": {
           "type": "object",
+          "description": "Property. Model:'https://schema.org/StructuredValue'. Ticket price of the place for resident boats for this category / period. A structured value with 2 subproperties where each items is a string in the format `key` : `price` in Euro €",
           "properties": {
             "month": {
               "type": "number"
@@ -145,6 +182,7 @@
         },
         "wintering": {
           "type": "object",
+          "description": "Property. Model:'https://schema.org/StructuredValue'. Ticket price of the place for wintering boats for this category / period. A structured value with 3 subproperties where each items is a string in the format `key` : `price` in Euro €",
           "properties": {
             "day": {
               "type": "number"
@@ -159,6 +197,7 @@
         },
         "fairing": {
           "type": "object",
+          "description": "Property. Model:'https://schema.org/StructuredValue'. Ticket price of the place for fairing boats for this category / period. A structured value with 3 subproperties where each items is a string in the format `key` : `price` in Euro €",
           "properties": {
             "day": {
               "type": "number"
