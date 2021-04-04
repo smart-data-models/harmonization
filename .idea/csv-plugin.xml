@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/InverterDevice/examples/example-normalized.jsonld">
+          <value>
+            <Attribute>
+              <option name="separator" value="&#9;" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/InverterDevice/schema.json">
           <value>
             <Attribute>

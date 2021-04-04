@@ -113,7 +113,7 @@
 	},
 	"protectionClassSLK": {
 		"type": "Property",
-		"value": 1
+		"value": "1"
 	},
 	"overVoltageCategory": {
 		"type": "Property",
@@ -130,7 +130,7 @@
 		"type": "Property",
 		"value": {
 			"min": 0,
-			"max": 95
+			"max": 0.95
 		}
 	},
 	"nominalPowerDC": {
@@ -266,7 +266,7 @@
 		"value": ["00-OnSector", "06-OverVoltage"]
 	},
 	"@context": [
-		"https://schema.lab.fiware.org/ld/context",
+		"https://smartdatamodels.org/context.jsonld",
 		"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
 	]
 }
