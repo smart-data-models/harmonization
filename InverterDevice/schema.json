@@ -264,8 +264,9 @@
         },
         "operatingVoltageDC": {
           "type": "object",
+          "description": "Property. Minimum and Maximum voltage allowed. The format is structured by a sub-property of 2 items. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **VLT** represents Volt.. Model:'https://schema.org/Number'. Units:'Volt'",
           "properties": {
-            "description": "Property. Minimum and Maximum voltage allowed. The format is structured by a sub-property of 2 items. The unit code (text) is given using the [UN/CEFACT Common Codes](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). For instance, **VLT** represents Volt.. Model:'https://schema.org/Number'. Units:'Volt'",
+
             "min": {
               "type": "number",
               "minimum": 0
