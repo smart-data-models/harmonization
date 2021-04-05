@@ -24,6 +24,27 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/StorageBatteryMeasurement/doc/spec.md">
+          <value>
+            <Attribute>
+              <option name="separator" value="&#9;" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/StorageBatteryMeasurement/examples/example.jsonld">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/StorageBatteryMeasurement/schema.json">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
