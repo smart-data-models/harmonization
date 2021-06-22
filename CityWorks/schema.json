@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "schemaVersion": "0.0",
+  "schemaVersion": "0.0.1",
   "$id": "https://smart-data-models.github.io/data-models/Transportation/CityWork/schema.json",
   "title": "CityWork schema",
   "description": "The Data Model is a contextual description of urban works carried out on a road axis and which can impact individual (Cars, motorcycle, bicycles, .…) or common transport (Tram, Bus, subway). It contains a geographic representation making it possible to locate its work from a specific JSON Object and at a more global level (Road segment, Road, District, ...) in order to assess the potential impacts on the circulation. A GeoJSON object may represent a region of space (a Geometry), a spatially-bounded entity (a Feature), or a list of features (a Feature Collection). refer to the document [geojson](https://tools.ietf.org/pdf/draft-ietf-geojson-03.pdf) for more information about the modelisation and the possible value.",
@@ -10,7 +10,7 @@
       "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
     },
     {
-      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties"
     },
     {
       "properties": {
@@ -26,640 +26,673 @@
         },
         "dateLastReported": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. A timestamp which denotes the last time when the device successfully reported data. The date and time of this observation in ISO8601 UTCformat."
         },
         "workNumber": {
-          "type": "string"
+          "type": "string",
+          "description": "Property. Number assigned to the work."
         },
         "workState": {
           "type": "string",
+          "description": "Property. Number assigned to the work. Enum:'all, approved, authorized, canceled, completed, decreeToBeSigned, draft, editedDecrees, instructionInProgress, investigated, nonCompliantOccupation, open, pendingAuthorization, pendingCancellation, planningCompleted, pendingDocument, pendingExtension, pendingPlanning, planned, received, reject, supported, validatedInPlanning'",
           "enum": [
-            "pendingPlanning",
-            "planned",
-            "validatedInPlanning",
-            "pendingAuthorization",
+            "all",
+            "approved",
+            "authorized",
+            "canceled",
+            "completed",
+            "decreeToBeSigned",
+            "draft",
+            "editedDecrees",
             "instructionInProgress",
             "investigated",
-            "authorized",
-            "reject",
-            "open",
-            "pendingExtension",
-            "approved",
             "nonCompliantOccupation",
-            "completed",
-            "draft",
-            "all",
-            "planningCompleted",
-            "canceled",
+            "open",
+            "pendingAuthorization",
             "pendingCancellation",
+            "planningCompleted",
             "pendingDocument",
+            "pendingExtension",
+            "pendingPlanning",
+            "planned",
+            "received",
+            "reject",
             "supported",
-            "editedDecrees",
-            "decreeToBeSigned",
-            "received"
+            "validatedInPlanning"
           ]
         },
         "workDate": {
           "type": "string",
-          "format": "date-time"
+          "description": "Property. Date and time (Day or period) of the works. It can be represented by an specific time instant or by an ISO8601 interval to separate attributes 'startDate, endDate'."
         },
         "startDate": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. Start date and time of the works in an ISO8601 UTC format. The attribute can be used in addition to the `workDate` attribute when it corresponds to a time interval to be highlighted."
         },
         "endDate": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. End date and time of the works in an ISO8601 UTC format. The attribute can be used in addition to the `workDate` attribute when it corresponds to a time interval to be highlighted."
         },
         "openingHoursSpecification": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "opens": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "closes": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "dayOfWeek": {
-                "type": "string",
-                "enum": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday",
-                  "PublicHolidays"
-                ]
-              },
-              "validFrom": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "validThrough": {
-                "type": "string",
-                "format": "date-time"
-              }
-            }
-          }
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/DateTime-Commons/properties/openingHoursSpecification"
         },
         "contractingAuthority": {
-          "type": "string"
+          "type": "string",
+          "description": "Property. Name of the contracting authority. Model:'https://schema.org/Text'"
         },
         "contactPoint": {
-          "type": "object"
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Contact-Commons/properties/contactPoint"
         },
         "decrees": {
           "type": "array",
+          "description": "Property. A List of text where each element is a string with the URL to download or the name of the decree.",
           "items": {
             "type": "string"
           }
         },
         "workLastDateUpdate": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. Last date for updating a contractual element of the work. Model:'https://schema.org/DateTime'"
         },
-        "mainContractingCompagny": {
-          "type": "string"
+        "mainContractingCompany": {
+          "type": "string",
+          "description": "Property. The Main Contracting Company responsible of the works."
         },
-        "othersContractingCompagny": {
+        "othersContractingCompany": {
           "type": "array",
+          "description": "Property. A List of Text where each element is a string with the name of the contracting Companies under the responsibility of the main Contracting Company.",
           "items": {
             "type": "string"
           }
         },
         "workLevel": {
           "type": "array",
+          "description": "Property. Positioning of the works in relation to a ground reference system. A combination of these elements. Enum:'aerial, ground, mixed, other, roofing, surface, underground, wall'",
           "items": {
             "type": "string",
             "enum": [
-              "ground",
-              "underGround",
-              "surface",
               "aerial",
-              "wall",
-              "roofing",
+              "ground",
               "mixed",
-              "other"
+              "other",
+              "roofing",
+              "surface",
+              "underground",
+              "wall"
             ]
           }
         },
         "workTarget": {
           "type": "array",
+          "description": "Property. Categories of works regarding the different profession. A combination of these elements. Enum:'bicyclePath, busCorridor, catainers, cityMotorBike, cityBike, cityCar, cityScooter, coldAndAirCon, coldGroup, copperCable, CoringPenetrometry, drinkingWater, electricityNetworks, exploratoryWork, fireHydrants, frameRoof, gasNetworks, generator, historicalMonuments, infrastructure, landscapedArea, movingHoistNacelleTruck, networks, offStreetParking, opticalFibers, other, overheadLine, papersCollection, pavement, publicDecorativeLighting, publicDomain, publicTransport, railway, rainyWaters, riprap, rMTNetworks, roads, roadsAndPublicDomain, sanitation, scaffolding, sideWalk, speedReductionDevices, streetParking, surfaceOccupation, supportStructures, tagsAndPosters, telecomNetworks, telecom-RMT-VideoNetworks, trafficSignalingRegulation, tramway, urbanFurniture, urbanHeating, variousWorks, videoNetworks, vrd'",
           "items": {
             "type": "string",
             "enum": [
-              "roadsAndPublicDomain",
-              "roads",
-              "pavement",
-              "publicDomain",
-              "railway",
-              "tramway",
-              "busCorridor",
-              "publicTransport",
               "bicyclePath",
-              "sideWalk",
-              "landScapedArea",
-              "infrastructure",
-              "suportStructures",
-              "riprap",
-              "streetParking",
-              "offStreetParking",
+              "busCorridor",
+              "catainers",
               "cityMotorBike",
               "cityBike",
               "cityCar",
               "cityScooter",
-              "electricityNetworks",
-              "gasNetworks",
-              "drinkingWater",
-              "sanitation",
-              "rainyWaters",
-              "urbanHeating",
-              "telecom-RMT-VideoNetworks",
-              "telecomNetworks",
-              "videoNetworks",
-              "rMTNetworks",
-              "opticalFibers",
-              "networks",
-              "copperCable",
-              "fireHydrants",
-              "CoringPenetrometry",
-              "publicDecorativeLighting",
-              "trafficSignalingRegulation",
-              "urbanFurniture",
-              "exploratoryWork",
-              "surfaceOccupation",
-              "historicalMonuments",
-              "frameRoof",
-              "speedReductionDevices",
               "coldAndAirCon",
-              "generator",
               "coldGroup",
-              "overheadLine",
-              "catainers",
-              "tagsAndPosters",
-              "papersCollection",
-              "vrd",
+              "copperCable",
+              "CoringPenetrometry",
+              "drinkingWater",
+              "electricityNetworks",
+              "exploratoryWork",
+              "fireHydrants",
+              "frameRoof",
+              "gasNetworks",
+              "generator",
+              "historicalMonuments",
+              "infrastructure",
+              "landscapedArea",
               "movingHoistNacelleTruck",
+              "networks",
+              "offStreetParking",
+              "opticalFibers",
+              "other",
+              "overheadLine",
+              "papersCollection",
+              "pavement",
+              "publicDecorativeLighting",
+              "publicDomain",
+              "publicTransport",
+              "railway",
+              "rainyWaters",
+              "riprap",
+              "rMTNetworks",
+              "roads",
+              "roadsAndPublicDomain",
+              "sanitation",
               "scaffolding",
+              "sideWalk",
+              "speedReductionDevices",
+              "streetParking",
+              "surfaceOccupation",
+              "supportStructures",
+              "tagsAndPosters",
+              "telecomNetworks",
+              "telecom-RMT-VideoNetworks",
+              "trafficSignalingRegulation",
+              "tramway",
+              "urbanFurniture",
+              "urbanHeating",
               "variousWorks",
-              "other"
+              "videoNetworks",
+              "vrd"
             ]
           }
         },
         "workNature": {
           "type": "array",
+          "description": "Property. Nature of the works. A combination of these values.Enum:'additionalInvestigations, brushCutting, cleaning, collection, connection, consolidation, construction, control, counting, craneLifting, creation, demolition, drivingSwitch, experimentation, extension, filmShooting, Installation-OR-layout, investigation, landFill, maintenance, manholeOpening, ManholeOpeningToRestoreService, miscellaneousInstallation, miscellaneousWorks, mowingDeburring, other, overheadLinesWorksIntervention, pruning, pulling, refurbishment, rehabilitation, reinforcement, renewal, renovation, repair, replacement, riprap, roadSign, safetyAndComplianceWork, safetyRailsInstallation, securingPerimeter, siteInstallation, staking, supportImplantation, surfaceOccupationAuthorization, survey, tarring, tonnageExemption, treeCutting, trenchOpening, upgrading'",
           "items": {
             "type": "string",
             "enum": [
-              "construction",
-              "creation",
-              "renovation",
-              "refurbishment",
-              "survey",
-              "control",
-              "experimentation",
-              "counting",
-              "repair",
-              "renewal",
-              "extension",
-              "rehabilitation",
-              "landfill",
-              "reinforcement",
-              "consolidation",
-              "upgrading",
-              "maintenance",
-              "connection",
-              "staking",
-              "investigation",
-              "miscellaneousWorks",
-              "miscellaneousInstallation",
-              "cleaning",
-              "drivingSwitch",
-              "Installation-OR-layout",
-              "pruning",
-              "demolition",
-              "riprap",
-              "craneLifting",
-              "OverheadLinesWorksintervention",
-              "supportImplantation",
               "additionalInvestigations",
-              "securedPerimeter",
-              "roadSign",
-              "siteInstallation",
-              "trenchOpening",
-              "ManholeOpeningToRestoreService",
-              "manholeOpening",
-              "safetyRailsInstallation",
-              "collection",
-              "pulling",
-              "MowingDeburring",
-              "filmShooting",
-              "safetyAndComplianceWork",
-              "surfaceOccupationAuthorization",
               "brushCutting",
-              "treeCutting",
-              "tarring",
+              "cleaning",
+              "collection",
+              "connection",
+              "consolidation",
+              "construction",
+              "control",
+              "counting",
+              "craneLifting",
+              "creation",
+              "demolition",
+              "drivingSwitch",
+              "experimentation",
+              "extension",
+              "filmShooting",
+              "Installation-OR-layout",
+              "investigation",
+              "landFill",
+              "maintenance",
+              "manholeOpening",
+              "ManholeOpeningToRestoreService",
+              "miscellaneousInstallation",
+              "miscellaneousWorks",
+              "mowingDeburring",
+              "other",
+              "overheadLinesWorksIntervention",
+              "pruning",
+              "pulling",
+              "refurbishment",
+              "rehabilitation",
+              "reinforcement",
+              "renewal",
+              "renovation",
+              "repair",
               "replacement",
+              "riprap",
+              "roadSign",
+              "safetyAndComplianceWork",
+              "safetyRailsInstallation",
+              "securingPerimeter",
+              "siteInstallation",
+              "staking",
+              "supportImplantation",
+              "surfaceOccupationAuthorization",
+              "survey",
+              "tarring",
               "tonnageExemption",
-              "other"
+              "treeCutting",
+              "trenchOpening",
+              "upgrading"
             ]
           }
         },
         "infrastructureFunction": {
           "type": "array",
+          "description": "Property.  Function of the infrastructure impacted by the works. Model:'https://schema.org/Text'. Enum:'collection, distribution, other, transportation'",
           "items": {
             "type": "string",
             "enum": [
-              "distribution",
               "collection",
-              "transportation",
-              "other"
+              "distribution",
+              "other",
+              "transportation"
             ]
           }
         },
         "encroachment": {
           "type": "array",
+          "description": "Property. Impact of the works on public, private area. A combination of these values. Model:'https://schema.org/Text'. Enum:'other, private, public'",
           "items": {
             "type": "string",
             "enum": [
+              "other",
               "private",
-              "public",
-              "other"
+              "public"
             ]
           }
         },
-        "typeOfInteventionRequest": {
+        "typeOfInterventionRequest": {
           "type": "string",
+          "description": "Property. Initial type of request to do the works. Model:'https://schema.org/Text'. Enum:'authorizationRequest,  interventionNotice,  other,  urgentWorks'",
           "enum": [
             "authorizationRequest",
-            "urgentWorks",
-            "InterventionNotice",
-            "other"
+            "interventionNotice",
+            "other",
+            "urgentWorks"
           ]
         },
         "workReason": {
           "type": "array",
+          "description": "Property. Reasons of the works in case of urgent intervention. A combination of these values. Enum:'derailment,  collapse,  fire,  flood,  gasLeak,  landslide,  other,  powerCut,  rockfall,  sagging,  waterLeak'",
           "items": {
             "type": "string",
             "enum": [
-              "landslide",
-              "rockfall",
-              "flood",
-              "waterLeak",
-              "gazLeak",
-              "powerCut",
-              "collapse",
-              "sagging",
-              "fire",
               "derailment",
-              "other"
+              "collapse",
+              "fire",
+              "flood",
+              "gasLeak",
+              "landslide",
+              "other",
+              "powerCut",
+              "rockfall",
+              "sagging",
+              "waterLeak"
             ]
           }
         },
         "workZone": {
           "type": "array",
+          "description": "Property. Zone of Works. A combination of these values. Enum:' airport, beach, bicyclePath, bridge, busCorridor, dock, floodArea, harbor, heliport, mountainousArea, offRoad, other, parking, parksGardens, path, protectArea, railwayLine, riskArea, river, road, rockyArea, sevesoArea, sideWalk, subwayLine, tramwayLine, tunnel'",
           "items": {
             "type": "string",
             "enum": [
-              "road",
-              "path",
-              "offRoad",
-              "sideWalk",
-              "bridge",
-              "tunnel",
-              "bicyclePath",
-              "busCorridor",
-              "tramwayLine",
-              "railwayLine",
-              "subwayLine",
-              "dock",
-              "parksGardens",
-              "beach",
-              "parking",
-              "heliport",
-              "harbor",
               "airport",
-              "river",
-              "protectArea",
-              "rockyArea",
+              "beach",
+              "bicyclePath",
+              "bridge",
+              "busCorridor",
+              "dock",
               "floodArea",
-              "sevesoArea",
-              "riskArea",
+              "harbor",
+              "heliport",
               "mountainousArea",
-              "other"
+              "offRoad",
+              "other",
+              "parking",
+              "parksGardens",
+              "path",
+              "protectArea",
+              "railwayLine",
+              "riskArea",
+              "river",
+              "road",
+              "rockyArea",
+              "sevesoArea",
+              "sideWalk",
+              "subwayLine",
+              "tramwayLine",
+              "tunnel"
             ]
           }
         },
         "workDisposition": {
-          "type": "object",
+          "type": "array",
+          "description": "Property. Specific rules taken for the works. A structured value from 0 to N occurrences where each items has the following format : `Disposition`: with sub properties  `startDate`, `endDate`,  `dayOfWeek`, `comment`. Enum:'alternatingLights , bicyclePathClosure, bicyclePathDeviation, bicyclePathReduction, circulationManualControl, laneClosure, laneDeviation, laneReduction, noRestriction, parkingForbidden, parkingModification, sidewalkClosure, sidewalkClosureOrReduction, sidewalkReduction, speedReduction'",
           "items": {
+            "type": "object",
             "properties": {
               "disposition": {
                 "type": "string",
                 "enum": [
-                  "noRestriction",
-                  "sidewalkClosureOrReduction",
-                  "sidewalkClosure",
-                  "sidewalkReduction",
-                  "laneClosure",
-                  "laneReduction",
-                  "laneDeviation",
-                  "bicyclePathClosure",
-                  "bicyclePathReduction",
-                  "bicyclePathDeviation",
-                  "parkingModification",
-                  "parkingForbidden",
                   "alternatingLights",
+                  "bicyclePathClosure",
+                  "bicyclePathDeviation",
+                  "bicyclePathReduction",
                   "circulationManualControl",
+                  "laneClosure",
+                  "laneDeviation",
+                  "laneReduction",
+                  "noRestriction",
+                  "parkingForbidden",
+                  "parkingModification",
+                  "sidewalkClosure",
+                  "sidewalkClosureOrReduction",
+                  "sidewalkReduction",
                   "speedReduction"
-                ],
-                "properties": {
-                  "startDate": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "endDate": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "dayOfWeek": {
-                    "type": "string",
-                    "enum": [
-                      "Monday",
-                      "Tuesday",
-                      "Wednesday",
-                      "Thursday",
-                      "Friday",
-                      "Saturday",
-                      "Sunday",
-                      "PublicHolidays"
-                    ]
-                  },
-                  "comment": {
-                    "type": "string"
-                  }
+                ]
+              },
+              "startDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "endDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "dayOfWeek": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                    "PublicHolidays"
+                  ]
                 }
+              },
+              "comment": {
+                "type": "string"
               }
             }
           }
         },
         "worksOtherImpact": {
           "type": "array",
+          "description": "Property. Other impact. A list of free values. Model:'https://schema.org/Text'",
           "items": {
             "type": "string"
           }
         },
         "isMobile": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Property. Characteristic on the mobility of the works : false for Fixed (default) and true for Mobile."
         },
         "countOfDerogation": {
-          "type": "Number"
+          "type": "integer",
+          "description": "Property. Count of derogations granted to the work Number."
         },
         "derogation": {
-          "type": "object",
+          "type": "array",
+          "description": "Property. Derogation granted for carrying out work on days and times. A structured value from 0 to N occurrences where each items has the following format `derogationType` :  with sub properties  `startDate`, `endDate`,  `dayOfWeek`, `comment` ",
+          "items": {
+            "type": "object",
             "properties": {
               "derogationType": {
+                "type": "string"
+              },
+              "startDate": {
                 "type": "string",
-                "properties": {
-                  "startDate": {
+                "format": "date-time"
+              },
+              "endDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "dayOfWeek": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                    "PublicHolidays"
+                  ]
+                }
+              },
+              "comment": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "isMainRoadImpactedHTR": {
+          "type": "boolean",
+          "description": "Property. Value to indicate whether the main traffic road is impacted. Default 'false,"
+        },
+        "countOfRoadImpacted": {
+          "type": "integer",
+          "description": "Property. Count of roads impacted by the works. Model:'https://schema.org/Integer'"
+        },
+        "roadImpacted": {
+          "type": "object",
+          "description": "Property. Roads impacted by the works and the details of the roads concerned by the work. A structured value from 0 to N occurrences where each items is a string in the format : 'roadImpact':[List of Segment Impacted or Free Text or geo-property, separated by a comma]. If `isMainRoadImpactedHTR` = true, The first item is this one.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "roadImpact": {
+                "type": "string"
+              },
+              "segmentImpact ": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "allowedVehicle": {
+          "type": "array",
+          "description": "Property. Type of vehicle authorized to circulate. A combination of these values. Enum:'all Vehicle, bicycle, bus, car, companiesTrucks,  emergencyVehicle, firefighters, lorry, motorcycle, police, subway, sweepingMachine, trailer, tramway, trucks, van'",
+          "items": {
+            "type": "string",
+            "enum": [
+              "all Vehicle",
+              "bicycle",
+              "bus",
+              "car",
+              "companiesTrucks",
+              "emergencyVehicle",
+              "firefighters",
+              "lorry",
+              "motorcycle",
+              "police",
+              "subway",
+              "sweepingMachine",
+              "trailer",
+              "tramway",
+              "trucks",
+              "van"
+            ]
+          }
+        },
+        "maxAuthorizedTonnage": {
+          "type": "array",
+          "description": "Property. Roads impacted by the works with Maximum tonnage authorized. A structured value from 0 to N occurrences where each items is a string in the format : `roadImpact`:[maxTonnage]. If `isMainRoadImpactedHTR` = true, The first item is this one.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "roadImpacted": {
+                "type": "string"
+              },
+              "maxTonnage": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "countOfBusLineImpacted": {
+          "type": "integer",
+          "description": "Property. Count of Bus Lines impacted by the works."
+        },
+        "busImpacted": {
+          "type": "array",
+          "description": "Property. Bus Lines impacted by the works.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lineImpacted": {
+                "anyOf": [
+                  {
                     "type": "string",
-                    "format": "date-time"
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                    "description": "Property. Identifier format of any NGSI entity"
                   },
-                  "endDate": {
+                  {
                     "type": "string",
-                    "format": "date-time"
-                  },
-                  "dayOfWeek": {
-                    "type": "string",
-                    "enum": [
-                      "Monday",
-                      "Tuesday",
-                      "Wednesday",
-                      "Thursday",
-                      "Friday",
-                      "Saturday",
-                      "Sunday",
-                      "PublicHolidays"
-                    ]
-                  },
-                  "comment": {
-                    "type": "string"
+                    "format": "uri",
+                    "description": "Property. Identifier format of any NGSI entity"
                   }
+                ]
+              },
+              "segmentImpact ": {
+                "type": "array",
+                "items": {
+                  "type": "string"
                 }
               }
             }
-          },
-          "isMainRoadImpactedHTR": {
-            "type": "boolean"
-          },
-          "countOfRoadImpacted": {
-            "type": "Number"
-          },
-          "roadImpacted": {
+          }
+        },
+        "countOfSchoolBusLineImpacted": {
+          "type": "integer",
+          "description": "Property. Count of School Bus Lines impacted by the works."
+        },
+        "schoolBusImpacted": {
+          "type": "array",
+          "description": "Property. School Bus lines impacted by the works.",
+          "items": {
             "type": "object",
-            "items": {
-              "properties": {
-                "roadImpact": {
-                  "type": "string",
-                  "properties": {
-                    "segmentImpact ": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
+            "properties": {
+              "lineImpact": {
+                "type": "string"
+              },
+              "segmentImpact ": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "countOfTramwayLineImpacted": {
+          "type": "integer",
+          "description": "Property. Count of tramway lines impacted by the works."
+        },
+        "tramwayImpacted": {
+          "type": "array",
+          "description": "Property. Tramway Line impacted by the works. A structured value from 0 to N occurrences.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lineImpacted": {
+                "type": "string"
+              },
+              "segmentImpacted": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "countOfSubwayLineImpacted": {
+          "type": "integer",
+          "description": "Property. Count of Subway Lines impacted by the works."
+        },
+        "subwayImpacted": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lineImpact": {
+                "type": "string"
+              },
+              "segmentImpact ": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "countOfRailwayLineImpacted": {
+          "type": "integer",
+          "description": "Property. Count of Railway Lines impacted by the works."
+        },
+        "railwayImpacted": {
+          "type": "array",
+          "description": "Property. Rail lines impacted by the works.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "lineImpacted": {
+                "type": "string"
+              },
+              "segmentImpact ": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "countOfSchoolImpacted": {
+          "type": "integer",
+          "description": "Property. Count of University, School, or other educational resource impacted by the works. "
+        },
+        "schoolImpacted": {
+          "type": "array",
+          "description": "Property. List of free text or or [GeoProperty] or a Reference to an entity [SCHOOL] if exist. ",
+          "items": {
+            "type": "string"
+          }
+        },
+        "countOfStationImpacted": {
+          "type": "integer",
+          "description": "Property. Count of Railway stations impacted by the works. "
+        },
+        "stationImpacted": {
+          "type": "array",
+          "description": "Property. Station Impacted by the works. A structured value from 0 to N occurrences",
+          "items": {
+            "type": "object",
+            "properties": {
+              "stationType": {
+                "type": "string"
+              },
+              "stationId": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 256,
+                      "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                      "description": "Property. Identifier format of any NGSI entity"
+                    },
+                    {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "Property. Identifier format of any NGSI entity"
                     }
-                  }
+                  ]
                 }
               }
             }
-          },
-          "allowedVehicle": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "enum": [
-                "all Vehicle",
-                "firefighters",
-                "police",
-                "emergencyVehicle",
-                "companiesTrucks",
-                "bus",
-                "tramway",
-                "subway",
-                "car",
-                "trucks",
-                "bicycle",
-                "motorcycle",
-                "lorry",
-                "trailer",
-                "van",
-                "sweepingMachine"
-              ]
-            }
-          },
-          "maxAuthorizedTonnage": {
-            "type": "object",
-            "items": {
-              "properties": {
-                "roadImpact": {
-                  "type": "string",
-                  "properties": {
-                    "maxTonnage": {
-                      "type": "number"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "countOfBusLineImpacted": {
-            "type": "Number"
-          },
-          "busImpacted": {
-            "type": "object",
-            "items": {
-              "properties": {
-                "lineImpact": {
-                  "type": "string",
-                  "properties": {
-                    "segmentImpact ": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "countOfSchoolBusLineImpacted": {
-            "type": "Number"
-          },
-          "schoolBusImpacted": {
-            "type": "object",
-            "items": {
-              "properties": {
-                "lineImpact": {
-                  "type": "string",
-                  "properties": {
-                    "segmentImpact ": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "countOfTramwayLineImpacted": {
-            "type": "Number"
-          },
-          "tramwayImpacted": {
-            "type": "object",
-            "items": {
-              "properties": {
-                "lineImpact": {
-                  "type": "string",
-                  "properties": {
-                    "segmentImpact ": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "countOfSubwayLineImpacted": {
-            "type": "Number"
-          },
-          "subwayImpacted": {
-            "type": "object",
-            "items": {
-              "properties": {
-                "lineImpact": {
-                  "type": "string",
-                  "properties": {
-                    "segmentImpact ": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "countOfRailwayLineImpacted": {
-            "type": "Number"
-          },
-          "railwayImpacted": {
-            "type": "object",
-            "items": {
-              "properties": {
-                "lineImpact": {
-                  "type": "string",
-                  "properties": {
-                    "segmentImpact ": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "countOfSchoolImpacted": {
-            "type": "Number"
-          },
-          "schoolImpacted": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "countOfStationImpacted": {
-            "type": "Number"
-          },
-          "stationImpacted": {
-            "type": "object",
-            "items": {
-              "properties": {
-                "stationType": {
-                  "type": "string",
-                  "properties": {
-                    "stationId": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "countOfEventImpacted": {
-            "type": "Number"
-          },
-          "eventsImpact": {
-            "type": "object",
-            "items": {
-              "type": "string"
-            }
+          }
+        },
+        "countOfEventImpacted": {
+          "type": "integer",
+          "description": "Property. Count of Events impacted by the works"
+        },
+        "eventsImpact": {
+          "type": "array",
+          "description": "Property. List of free text or to the entity [Events](https://github.com/smart-data-models/dataModel.Tourism/blob/master/Events/doc/spec.md) if exist.",
+          "items": {
+            "type": "string"
           }
         }
       }
@@ -670,7 +703,7 @@
     "type",
     "location",
     "workDate",
-    "contractingDateLastUpdate",
+    "dateLastReported",
     "workZone"
   ]
 }

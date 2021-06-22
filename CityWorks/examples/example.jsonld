@@ -44,37 +44,39 @@
   "openingHoursSpecification": [
     {
       "dayOfWeek": "Monday",
-      "opens": "07.00:00",
-      "closes": "20.00:00"
+      "opens": "07:00:00",
+      "closes": "20:00:00"
     },
     {
       "dayOfWeek": "Tuesday",
-      "opens": "07.00:00",
-      "closes": "20.00:00"
+      "opens": "07:00:00",
+      "closes": "20:00:00"
     },
     {
       "dayOfWeek": "Wednesday",
-      "opens": "07.00:00",
-      "closes": "20.00:00"
+      "opens": "07:00:00",
+      "closes": "20:00:00"
     },
     {
       "dayOfWeek": "Thursday",
-      "opens": "07.00:00",
-      "closes": "20.00:00"
+      "opens": "07:00:00",
+      "closes": "20:00:00"
     },
     {
       "dayOfWeek": "Friday",
-      "opens": "07.00:00",
-      "closes": "20.00:00"
+      "opens": "07:00:00",
+      "closes": "20:00:00"
     },
     {
       "dayOfWeek": "Saturday",
-      "opens": "08.30:00",
-      "closes": "17.00:00"
+      "opens": "08:30:00",
+      "closes": "17:00:00"
     }
   ],
   "contractingAuthority": "MNCA - subwaypole Nice Cote d'Azur",
-  "contactPoint": "Service des AO",
+  "contactPoint": {
+    "name": "Service des AO"
+  },
   "decrees": [
     "https://MNCA/CityWork/Decree/CW-2020Q2-006",
     "CW-2020Q2-006",
@@ -90,7 +92,7 @@
   ],
   "workLevel": [
     "ground",
-    "underGround"
+    "underground"
   ],
   "workTarget": [
     "roads",
@@ -130,29 +132,59 @@
     "busCorridor",
     "tramwayLine"
   ],
-  "workDisposition": {
-    "laneReduction": {
+  "workDisposition": [
+    {
+      "disposition": "laneReduction",
       "startDate": "2020-05-11T08:00:00Z",
       "endDate": "2020-05-15T18:30:00Z",
-      "dayOfWeek": "Monday, Tuesday, Wednesday, Thursday, Friday",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
       "comment": "Switching from 2 lanes to 1 lane - BusCorridor not available"
     },
-    "sidewalkReduction": {
+    {
+      "disposition": "sidewalkReduction",
       "startDate": "2020-05-12T00:00:00Z",
       "endDate": "2020-05-14T24:00:00Z",
-      "dayOfWeek": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday"
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
     },
-    "alternatingLights": {
+    {
+      "disposition": "alternatingLights",
       "startDate": "2020-05-11T08:00:00Z",
       "endDate": "2020-05-15T18:30:00Z",
-      "dayOfWeek": "Monday, Tuesday, Wednesday, Thursday, Friday"
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
     },
-    "speedReduction": {
+    {
+      "disposition": "speedReduction",
       "startDate": "2020-05-12T00:00:00Z",
-      "dayOfWeek": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
       "comment": "Speed Switching from 2 lanes to 1 lane"
     }
-  },
+  ],
   "workOtherImpact": {
     "type": "Property",
     "value": [
@@ -160,26 +192,30 @@
       "shopsTerrace"
     ]
   },
-  "isMobile": {
-    "type": "Property",
-    "value": false
-  },
-  "countOfDerogation": {
-    "type": "Property",
-    "value": 2
-  },
-  "derogation": {
-    "Work Nigth during Workday": {
+  "isMobile": false,
+  "countOfDerogation": 2,
+  "derogation": [
+    {
+      "derogationType": "Work Nigth during Workday",
       "startDate": "2020-05-11T20:30:00Z",
       "endDate": "2020-05-15T23:30:00",
-      "dayOfWeek": "Monday, Tuesday, Wednesday, Thursday, Friday"
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "derogationType": "BRH",
+      "startDate": "2020-05-13T20:30:00Z",
+      "endDate": "2020-05-13T23:30:00Z",
+      "dayOfWeek": [
+        "Wednesday"
+      ]
     }
-  },
-  "BRH": {
-    "startDate": "2020-05-13T20: 30: 00 Z ",
-    "endDate": "2020-05-13T23:30:00Z",
-    "dayOfWeek": "Wednesday"
-  },
+  ],
   "isMainRoadImpactedHTR": true,
   "countOfRoadImpacted": 3,
   "roadImpacted": {
@@ -224,95 +260,73 @@
     "emergencyVehicle",
     "companiesTrucks"
   ],
-  "maxAuthorizedTonnage": {
-    "type": "Property",
-    "value": {
-      "urn:ngsi-ld:Road:N202": {
-        "type": "Property",
-        "value": 30
-      },
-      "Road:D021": {
-        "type": "Property",
-        "value": 20
-      },
-      "urn:ngsi-ld:Road:D032": {
-        "type": "Property",
-        "value": 15.2
-      }
+  "maxAuthorizedTonnage": [
+    {
+      "roadImpacted": "urn:ngsi-ld:Road:N202",
+      "maxTonnage": 30
+    },
+    {
+      "roadImpacted": "Road:D021",
+      "maxTonnage": 20
+    },
+    {
+      "roadImpacted": "urn:ngsi-ld:Road:D032",
+      "maxTonnage": 15.2
     }
-  },
-  "countOfBusLineImpacted": {
-    "type": "Property",
-    "value": 1
-  },
-  "busImpacted": {
-    "type": "Property",
-    "value": {
-      "urn:ngsi-ld:BusLine:L205": ""
+  ],
+  "countOfBusLineImpacted": 1,
+  "busImpacted": [
+    {
+      "lineImpacted": "urn:ngsi-ld:BusLine:L205"
     }
-  },
-  "countOfTramwayLineImpacted": {
-    "type": "Property",
-    "value": 2
-  },
-  "tramwayImpacted": {
-    "type": "Property ",
-    "value": {
-      "TramWayLine:L01": {
-        "type": "Property",
-        "value": [
-          "urn:ngsi-ld:TramWaySegment:L01-12",
-          "urn:ngsi-ld:TramWaySegment:L01-19"
-        ]
-      },
-      "TramWayLine:L03": {
-        "type": "Property",
-        "value": [
-          "urn:ngsi-ld:TramWaySegment:L03-19"
-        ]
-      }
+  ],
+  "countOfTramwayLineImpacted": 2,
+  "tramwayImpacted": [
+    {
+      "lineImpacted": "TramWayLine:L01",
+      "segmentImpacted": [
+        "urn:ngsi-ld:TramWaySegment:L01-12",
+        "urn:ngsi-ld:TramWaySegment:L01-19"
+      ]
+    },
+    {
+      "lineImpacted": "TramWayLine:L03",
+      "segmentImpacted": [
+        "urn:ngsi-ld:TramWaySegment:L03-19"
+      ]
     }
-  },
-  "countOfRailwayLineImpacted": {
-    "type": "Property",
-    "value": 1
-  },
-  "railwayImpacted": {
-    "type": "Property ",
-    "value": {
-      "Nice-Grasse": {
-        "type": "Property",
-        "value": [
-          "Nice Saint Augustin section"
-        ]
-      }
+  ],
+  "countOfRailwayLineImpacted": 1,
+  "railwayImpacted": [
+    {
+      "lineImpacted": "Nice-Grasse",
+      "segmentImpact": [
+        "Nice Saint Augustin section"
+      ]
     }
-  },
-  "countOfSchoolImpacted": {
-    "type": "Property",
-    "value": 2
-  },
-  "schoolImpacted": {
-    "type": "Property",
-    "value": [
-      "Lycée Massena",
-      "Université Campus Saint Jean"
-    ]
-  },
-  "countOfStationImpacted": {
-    "type": "Property",
-    "value": 4
-  },
-  "stationImpacted": {
-    "bus": [
-      "urn:ngsi-ld:station:L205-S13",
-      "urn:ngsi-ld:station:L205-S14"
-    ],
-    "tram": [
-      "L01-S12",
-      "L01-S19"
-    ]
-  },
+  ],
+  "countOfSchoolImpacted": 2,
+  "schoolImpacted": [
+    "Lycée Massena",
+    "Université Campus Saint Jean"
+  ],
+  "countOfStationImpacted": 4,
+  "stationImpacted": [
+    {
+      "stationType": "bus",
+      "stationId": [
+        "urn:ngsi-ld:station:L205-S13",
+        "urn:ngsi-ld:station:L205-S14"
+      ]
+    },
+    {
+      "stationType": "tram",
+      "stationId": [
+        "L01-S12",
+        "L01-S19"
+      ]
+    }
+  ],
   "countOfEventImpacted": 2,
   "eventsImpact": [
     "urn:ngsi-ld:events:MNCA-EV-JazzCimiez",
