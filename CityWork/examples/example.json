@@ -118,7 +118,7 @@
     "public",
     "private"
   ],
-  "typeOfInterventionRequest": "authorizationRequest",
+  "typeOfInteventionRequest": "authorizationRequest",
   "workReason": [
     "sagging",
     "powerCut"
@@ -183,10 +183,9 @@
     }
   ],
   "workOtherImpact": [
-      "layingCablesOnGround",
-      "shopsTerrace"
-    ]
-  ,
+    "layingCablesOnGround",
+    "shopsTerrace"
+  ],
   "isMobile": false,
   "countOfDerogation": 2,
   "derogation": [
@@ -332,9 +331,5 @@
   "eventsImpact": [
     "urn:ngsi-ld:events:MNCA-EV-JazzCimiez",
     "NiceMarathon"
-  ],
-  "@context": [
-    "https://smartdatamodels.org/context",
-    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
   ]
 }

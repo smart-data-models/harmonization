@@ -65,7 +65,7 @@
         },
         "workDate": {
           "type": "string",
-          "description": "Property. Date and time (Day or period) of the works. It can be represented by an specific time instant or by an ISO8601 interval to separate attributes 'startDate, endDate'. Model:'https://schema.org/DateTime'"
+          "description": "Property. Date and time (Day or period) of the works. It can be represented by an specific time string. Model:'https://schema.org/DateTime'"
         },
         "startDate": {
           "type": "string",
@@ -364,7 +364,8 @@
                   "sidewalkClosure",
                   "sidewalkClosureOrReduction",
                   "sidewalkReduction",
-                  "speedReduction"
+                  "speedReduction",
+                  "workOtherImpact"
                 ]
               },
               "startDate": {
@@ -397,7 +398,7 @@
             }
           }
         },
-        "worksOtherImpact": {
+        "workOtherImpact": {
           "type": "array",
           "description": "Property. Other impact. A list of free values. Model:'https://schema.org/Text'",
           "items": {
@@ -460,18 +461,34 @@
           "description": "Property. Count of roads impacted by the works. Model:'https://schema.org/Integer'"
         },
         "roadImpacted": {
-          "type": "object",
+          "type": "array",
           "description": "Property. Roads impacted by the works and the details of the roads concerned by the work. A structured value from 0 to N occurrences where each items is a string in the format : 'roadImpact':[List of Segment Impacted or Free Text or geo-property, separated by a comma]. If `isMainRoadImpactedHTR` = true, The first item is this one.",
           "items": {
             "type": "object",
             "properties": {
-              "roadImpact": {
-                "type": "string"
+              "roadId": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  }
+                ]
               },
-              "segmentImpact ": {
+              "segmentImpacted": {
                 "type": "array",
                 "items": {
                   "type": "string"
+                },
+                "segmentArea": {
+                  "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
                 }
               }
             }
@@ -509,7 +526,20 @@
             "type": "object",
             "properties": {
               "roadImpacted": {
-                "type": "string"
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Property. Identifier format of any NGSI entity"
+                  }
+                ]
               },
               "maxTonnage": {
                 "type": "number"
@@ -543,7 +573,7 @@
                   }
                 ]
               },
-              "segmentImpact ": {
+              "segmentImpact": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -565,7 +595,7 @@
               "lineImpact": {
                 "type": "string"
               },
-              "segmentImpact ": {
+              "segmentImpact": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -609,7 +639,7 @@
               "lineImpact": {
                 "type": "string"
               },
-              "segmentImpact ": {
+              "segmentImpact": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -631,7 +661,7 @@
               "lineImpacted": {
                 "type": "string"
               },
-              "segmentImpact ": {
+              "segmentImpact": {
                 "type": "array",
                 "items": {
                   "type": "string"

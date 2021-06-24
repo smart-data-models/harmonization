@@ -55,7 +55,10 @@
   },
   "dateLastReported": {
     "type": "Property",
-    "value": "2020-04-02T10:30:00Z"
+    "value": {
+      "@type": "DateTime",
+      "@value": "2020-04-02T10:30:00Z"
+    }
   },
   "workNumber": {
     "type": "Property",
@@ -137,11 +140,11 @@
       }
     }
   },
-  "mainContractingCompagny": {
+  "mainContractingCompany": {
     "type": "Property",
     "value": "XRP - NICOLSPA"
   },
-  "othersContractingCompagny": {
+  "othersContractingCompany": {
     "type": "Property",
     "value": [
       "VRD - Terrassement Nicois",
@@ -268,7 +271,7 @@
   "derogation": {
     "type": "Property",
     "value": {
-      "Work Night during Workday": {
+      "Work Nigth during Workday": {
         "type": "Property",
         "value": {
           "startDate": "2020-05-11T20:30:00Z",
@@ -296,72 +299,74 @@
   },
   "roadImpacted": {
     "type": "Property",
-    "value": {
-      "urn:ngsi-ld:Road:N202": {
-        "type": "Property",
-        "value": [
+    "value": [
+      {
+        "roadId": "urn:ngsi-ld:Road:N202",
+        "segmentImpacted": [
           "urn:ngsi-ld:RoadSegment:N202-12",
           "urn:ngsi-ld:RoadSegment:N202-13"
         ]
       },
-      "Road:D021": {
-        "type": "Property",
-        "value": [
+      {
+        "roadId": "Road:D021",
+        "segmentsImpacted": [
           "12",
           "13",
           "14",
           "15"
         ]
       },
-      "urn:ngsi-ld:Road:D032": {
-        "type": "Property",
-        "value": [
-          "LineString",
-          [
-            102.0,
-            0.0
-          ],
-          [
-            103.0,
-            1.0
-          ],
-          [
-            104.0,
-            0.0
-          ],
-          [
-            105.0,
-            1.0
+      {
+        "roadId": "urn:ngsi-ld:Road:D032",
+        "segmentArea": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              102.0,
+              0.0
+            ],
+            [
+              103.0,
+              1.0
+            ],
+            [
+              104.0,
+              0.0
+            ],
+            [
+              105.0,
+              1.0
+            ]
           ]
-        ]
+        }
       }
-    }
+    ]
   },
   "allowedVehicle": {
     "type": "Property",
     "value": [
-      "firefighters",
-      "police",
+      "companiesTrucks",
       "emergencyVehicle",
-      "companiesTrucks"
+      "firefighters",
+      "police"
     ]
   },
   "maxAuthorizedTonnage": {
     "type": "Property",
-    "value": {
-      "urn:ngsi-ld:Road:N202": {
-        "type": "Property",
-        "value": 30
+    "value": [
+      {
+        "roadImpacted": "urn:ngsi-ld:Road:N202",
+        "maxTonnage": 30
       },
-      "Road:D021": {
-        "type": "Property",
-        "value": 20
+      {
+        "roadImpacted": "Road:D021",
+        "maxTonnage": 20
       },
-      "urn:ngsi-ld:Road:D032": {
-        "type": "Property",
-        "value": 15.2
+      {
+        "roadImpacted": "urn:ngsi-ld:Road:D032",
+        "maxTonnage": 15.2
       }
-    }
+    ]
   },
   "countOfBusLineImpacted": {
     "type": "Property",
@@ -369,9 +374,11 @@
   },
   "busImpacted": {
     "type": "Property",
-    "value": {
-      "urn:ngsi-ld:BusLine:L205": ""
-    }
+    "value": [
+      {
+        "lineImpacted": "urn:ngsi-ld:BusLine:L205"
+      }
+    ]
   },
   "countOfTramwayLineImpacted": {
     "type": "Property",
@@ -379,21 +386,21 @@
   },
   "tramwayImpacted": {
     "type": "Property ",
-    "value": {
-      "TramWayLine:L01": {
-        "type": "Property",
-        "value": [
+    "value": [
+      {
+        "lineImpacted": "TramWayLine:L01",
+        "segmentImpacted": [
           "urn:ngsi-ld:TramWaySegment:L01-12",
           "urn:ngsi-ld:TramWaySegment:L01-19"
         ]
       },
-      "TramWayLine:L03": {
-        "type": "Property",
-        "value": [
+      {
+        "lineImpacted": "TramWayLine:L03",
+        "segmentImpacted": [
           "urn:ngsi-ld:TramWaySegment:L03-19"
         ]
       }
-    }
+    ]
   },
   "countOfRailwayLineImpacted": {
     "type": "Property",
@@ -401,14 +408,14 @@
   },
   "railwayImpacted": {
     "type": "Property ",
-    "value": {
-      "Nice-Grasse": {
-        "type": "Property",
-        "value": [
+    "value": [
+      {
+        "lineImpacted": "Nice-Grasse",
+        "segmentImpact": [
           "Nice Saint Augustin section"
         ]
       }
-    }
+    ]
   },
   "countOfSchoolImpacted": {
     "type": "Property",
@@ -427,22 +434,22 @@
   },
   "stationImpacted": {
     "type": "Property ",
-    "value": {
-      "bus": {
-        "type": "Property",
-        "value": [
+    "value": [
+      {
+        "stationType": "bus",
+        "stationType": [
           "urn:ngsi-ld:station:L205-S13",
           "urn:ngsi-ld:station:L205-S14"
         ]
       },
-      "tram": {
-        "type": "Property",
-        "value": [
+      {
+        "stationType": "tram",
+        "stationType": [
           "L01-S12",
           "L01-S19"
         ]
       }
-    }
+    ]
   },
   "countOfEventImpacted": {
     "type": "Property",
