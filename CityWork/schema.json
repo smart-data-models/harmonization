@@ -467,20 +467,7 @@
             "type": "object",
             "properties": {
               "roadId": {
-                "anyOf": [
-                  {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 256,
-                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                    "description": "Property. Identifier format of any NGSI entity"
-                  },
-                  {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Property. Identifier format of any NGSI entity"
-                  }
-                ]
+                "type": "string"
               },
               "segmentImpacted": {
                 "type": "array",
@@ -526,20 +513,7 @@
             "type": "object",
             "properties": {
               "roadImpacted": {
-                "anyOf": [
-                  {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 256,
-                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                    "description": "Property. Identifier format of any NGSI entity"
-                  },
-                  {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Property. Identifier format of any NGSI entity"
-                  }
-                ]
+                "type": "string"
               },
               "maxTonnage": {
                 "type": "number"
@@ -558,22 +532,9 @@
             "type": "object",
             "properties": {
               "lineImpacted": {
-                "anyOf": [
-                  {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 256,
-                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                    "description": "Property. Identifier format of any NGSI entity"
-                  },
-                  {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Property. Identifier format of any NGSI entity"
-                  }
-                ]
+                "type": "string"
               },
-              "segmentImpact": {
+              "segmentImpacted": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -592,10 +553,10 @@
           "items": {
             "type": "object",
             "properties": {
-              "lineImpact": {
+              "lineImpacted": {
                 "type": "string"
               },
-              "segmentImpact": {
+              "segmentImpacted": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -636,10 +597,10 @@
           "items": {
             "type": "object",
             "properties": {
-              "lineImpact": {
+              "lineImpacted": {
                 "type": "string"
               },
-              "segmentImpact": {
+              "segmentImpacted": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -661,7 +622,7 @@
               "lineImpacted": {
                 "type": "string"
               },
-              "segmentImpact": {
+              "segmentImpacted": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -697,20 +658,7 @@
               "stationId": {
                 "type": "array",
                 "items": {
-                  "anyOf": [
-                    {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 256,
-                      "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                      "description": "Property. Identifier format of any NGSI entity"
-                    },
-                    {
-                      "type": "string",
-                      "format": "uri",
-                      "description": "Property. Identifier format of any NGSI entity"
-                    }
-                  ]
+                 "type": "string"
                 }
               }
             }
