@@ -23,20 +23,20 @@
         },
         "territorialArea": {
           "type": "string",
-          "description": "Property. Territorial area. Level higher to the attribute 'areaServed'. A list of Free Text."
+          "description": "Property. Territorial area. Level higher to the attribute 'areaServed'. A list of Free Text. Model:'https://schema.org/Text'"
         },
         "dateLastReported": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. A timestamp which denotes the last time when the device successfully reported data. The date and time of this observation in ISO8601 UTCformat."
+          "description": "Property. A timestamp which denotes the last time when the device successfully reported data. The date and time of this observation in ISO8601 UTCformat. Model:'https://schema.org/DateTime'"
         },
         "workNumber": {
           "type": "string",
-          "description": "Property. Number assigned to the work."
+          "description": "Property. Number assigned to the work. Model:'https://schema.org/Text'"
         },
         "workState": {
           "type": "string",
-          "description": "Property. Number assigned to the work. Enum:'all, approved, authorized, canceled, completed, decreeToBeSigned, draft, editedDecrees, instructionInProgress, investigated, nonCompliantOccupation, open, pendingAuthorization, pendingCancellation, planningCompleted, pendingDocument, pendingExtension, pendingPlanning, planned, received, reject, supported, validatedInPlanning'",
+          "description": "Property. Number assigned to the work. Enum:'all, approved, authorized, canceled, completed, decreeToBeSigned, draft, editedDecrees, instructionInProgress, investigated, nonCompliantOccupation, open, pendingAuthorization, pendingCancellation, planningCompleted, pendingDocument, pendingExtension, pendingPlanning, planned, received, reject, supported, validatedInPlanning'. Model:'https://schema.org/Text'",
           "enum": [
             "all",
             "approved",
@@ -65,17 +65,17 @@
         },
         "workDate": {
           "type": "string",
-          "description": "Property. Date and time (Day or period) of the works. It can be represented by an specific time instant or by an ISO8601 interval to separate attributes 'startDate, endDate'."
+          "description": "Property. Date and time (Day or period) of the works. It can be represented by an specific time instant or by an ISO8601 interval to separate attributes 'startDate, endDate'. Model:'https://schema.org/DateTime'"
         },
         "startDate": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. Start date and time of the works in an ISO8601 UTC format. The attribute can be used in addition to the `workDate` attribute when it corresponds to a time interval to be highlighted."
+          "description": "Property. Start date and time of the works in an ISO8601 UTC format. The attribute can be used in addition to the `workDate` attribute when it corresponds to a time interval to be highlighted. Model:'https://schema.org/DateTime'"
         },
         "endDate": {
           "type": "string",
           "format": "date-time",
-          "description": "Property. End date and time of the works in an ISO8601 UTC format. The attribute can be used in addition to the `workDate` attribute when it corresponds to a time interval to be highlighted."
+          "description": "Property. End date and time of the works in an ISO8601 UTC format. The attribute can be used in addition to the `workDate` attribute when it corresponds to a time interval to be highlighted. Model:'https://schema.org/DateTime'"
         },
         "openingHoursSpecification": {
           "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/DateTime-Commons/properties/openingHoursSpecification"
@@ -101,7 +101,7 @@
         },
         "mainContractingCompany": {
           "type": "string",
-          "description": "Property. The Main Contracting Company responsible of the works."
+          "description": "Property. The Main Contracting Company responsible of the works. Model:'https://schema.org/Text'"
         },
         "othersContractingCompany": {
           "type": "array",
@@ -278,7 +278,7 @@
         },
         "typeOfInterventionRequest": {
           "type": "string",
-          "description": "Property. Initial type of request to do the works. Model:'https://schema.org/Text'. Enum:'authorizationRequest,  interventionNotice,  other,  urgentWorks'",
+          "description": "Property. Initial type of request to do the works. Model:'https://schema.org/Text'. Enum:'authorizationRequest,  interventionNotice,  other,  urgentWorks'. Model:'https://schema.org/Text'",
           "enum": [
             "authorizationRequest",
             "interventionNotice",
@@ -406,11 +406,11 @@
         },
         "isMobile": {
           "type": "boolean",
-          "description": "Property. Characteristic on the mobility of the works : false for Fixed (default) and true for Mobile."
+          "description": "Property. Characteristic on the mobility of the works : false for Fixed (default) and true for Mobile. Model:'https://schema.org/Boolean'"
         },
         "countOfDerogation": {
           "type": "integer",
-          "description": "Property. Count of derogations granted to the work Number."
+          "description": "Property. Count of derogations granted to the work Number. Model:'https://schema.org/Integer'"
         },
         "derogation": {
           "type": "array",
@@ -453,7 +453,7 @@
         },
         "isMainRoadImpactedHTR": {
           "type": "boolean",
-          "description": "Property. Value to indicate whether the main traffic road is impacted. Default 'false,"
+          "description": "Property. Value to indicate whether the main traffic road is impacted. Default false. https://schema.org/Boolean"
         },
         "countOfRoadImpacted": {
           "type": "integer",
@@ -519,7 +519,7 @@
         },
         "countOfBusLineImpacted": {
           "type": "integer",
-          "description": "Property. Count of Bus Lines impacted by the works."
+          "description": "Property. Count of Bus Lines impacted by the works. Model:'https://schema.org/Integer'"
         },
         "busImpacted": {
           "type": "array",
@@ -554,7 +554,7 @@
         },
         "countOfSchoolBusLineImpacted": {
           "type": "integer",
-          "description": "Property. Count of School Bus Lines impacted by the works."
+          "description": "Property. Count of School Bus Lines impacted by the works. Model:'https://schema.org/Integer'"
         },
         "schoolBusImpacted": {
           "type": "array",
@@ -576,7 +576,7 @@
         },
         "countOfTramwayLineImpacted": {
           "type": "integer",
-          "description": "Property. Count of tramway lines impacted by the works."
+          "description": "Property. Count of tramway lines impacted by the works. Model:'https://schema.org/Integer'"
         },
         "tramwayImpacted": {
           "type": "array",
@@ -598,10 +598,11 @@
         },
         "countOfSubwayLineImpacted": {
           "type": "integer",
-          "description": "Property. Count of Subway Lines impacted by the works."
+          "description": "Property. Count of Subway Lines impacted by the works. Model:'https://schema.org/Integer'"
         },
         "subwayImpacted": {
           "type": "array",
+          "description": "Property. Subway lines impacted by the works. A structured value from 0 to N occurrences.",
           "items": {
             "type": "object",
             "properties": {
@@ -619,7 +620,7 @@
         },
         "countOfRailwayLineImpacted": {
           "type": "integer",
-          "description": "Property. Count of Railway Lines impacted by the works."
+          "description": "Property. Count of Railway Lines impacted by the works. Model:'https://schema.org/Integer'"
         },
         "railwayImpacted": {
           "type": "array",
@@ -641,7 +642,7 @@
         },
         "countOfSchoolImpacted": {
           "type": "integer",
-          "description": "Property. Count of University, School, or other educational resource impacted by the works. "
+          "description": "Property. Count of University, School, or other educational resource impacted by the works. Model:'https://schema.org/Integer'"
         },
         "schoolImpacted": {
           "type": "array",
@@ -652,7 +653,7 @@
         },
         "countOfStationImpacted": {
           "type": "integer",
-          "description": "Property. Count of Railway stations impacted by the works. "
+          "description": "Property. Count of Railway stations impacted by the works. Model:'https://schema.org/Integer'"
         },
         "stationImpacted": {
           "type": "array",
@@ -687,7 +688,7 @@
         },
         "countOfEventImpacted": {
           "type": "integer",
-          "description": "Property. Count of Events impacted by the works"
+          "description": "Property. Count of Events impacted by the works. Model:'https://schema.org/Integer'"
         },
         "eventsImpact": {
           "type": "array",
@@ -702,9 +703,6 @@
   "required": [
     "id",
     "type",
-    "location",
-    "workDate",
-    "dateLastReported",
-    "workZone"
+    "location"
   ]
 }
