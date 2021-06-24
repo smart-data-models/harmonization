@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/data-models/Transportation/CityWork/schema.json",
+  "$id": "https://smart-data-models.github.io/dataMdel.Transportation/CityWork/schema.json",
   "title": "CityWork schema",
-  "description": "The Data Model is a contextual description of urban works carried out on a road axis and which can impact individual (Cars, motorcycle, bicycles, .…) or common transport (Tram, Bus, subway). It contains a geographic representation making it possible to locate its work from a specific JSON Object and at a more global level (Road segment, Road, District, ...) in order to assess the potential impacts on the circulation. A GeoJSON object may represent a region of space (a Geometry), a spatially-bounded entity (a Feature), or a list of features (a Feature Collection). refer to the document [geojson](https://tools.ietf.org/pdf/draft-ietf-geojson-03.pdf) for more information about the modelisation and the possible value.",
+  "description": "The Data Model is a contextual description of urban works carried out on a road axis and which can impact individual (Cars, motorcycle, bicycles, .…) or common transport (Tram, Bus, subway). It contains a geographic representation making it possible to locate its work from a specific JSON Object and at a more global level (Road segment, Road, District, ...) in order to assess the potential impacts on the circulation. A GeoJSON object may represent a region of space (a Geometry), a spatially-bounded entity (a Feature), or a list of features (a Feature Collection). refer to the document [geojson](https://tools.ietf.org/pdf/draft-ietf-geojson-03.pdf) for more information about the modeling and the possible value.",
   "type": "object",
   "allOf": [
     {
@@ -19,10 +19,11 @@
           "enum": [
             "CityWork"
           ],
-          "description": "NGSI Entity type"
+          "description": "Property. NGSI Entity type. It has to be Citywork"
         },
         "territorialArea": {
-          "type": "string"
+          "type": "string",
+          "description": "Property. Territorial area. Level higher to the attribute 'areaServed'. A list of Free Text."
         },
         "dateLastReported": {
           "type": "string",
