@@ -1,9 +1,8 @@
-
-description: This is a compilation list of the current adopters of the data model FareCollectionSystem of the Subject Urban Mobility.
+description: This is a compilation list of the current adopters of the data model FareCollectionSystem of the Subject Transportation.
 currentAdopters:
 -
- adopter: IUDX
- description: Used by various institutions for Air Quality Monitoring.
+ adopter:
+ description:
  mail: 
  organization: 
  project: 

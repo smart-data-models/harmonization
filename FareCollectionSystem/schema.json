@@ -62,10 +62,6 @@
           "type": "string",
           "description": "Property. Model:'https://schema.org/Text'. Unique ticket Id of the transaction or Id of the smart card used in the transaction."
         },
-        "transactionTypeId": {
-          "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Id for the transactionType corresponding to this observation. 2401 - QR sale, C201- smart card entry , C202 - smart card exit etc."
-        },
         "stage": {
           "type": "number",
           "description": "Property. Model:'https://schema.org/Number'. Total number of stages from the origin bus stop to the destination bus stop."
