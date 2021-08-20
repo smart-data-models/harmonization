@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "$schemaVersion": "0.0",
-  "$id": "https://smart-data-models.github.io/dataModel.UrbanMobility/FareCollectionSystem/schema.json",
-  "title": " - FareCollectionSystem",
-  "description": "A public transit fare collection system Data Model..",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/dataModel.Transportation/FareCollectionSystem/schema.json",
+  "title": "Smart Dta Models - FareCollectionSystem",
+  "description": "A public transit fare collection system Data Model",
   "type": "object",
   "allOf": [
     {
@@ -14,6 +14,13 @@
     },
     {
       "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI entity type. It has to be FareCollectionSystem",
+          "enum": [
+            "FareCollectionSystem"
+          ]
+        },
         "destinationStopName": {
           "type": "string",
           "description": "Property. Model:'https://schema.org/Text'. The name of the destination bus stop corresponding to this observation."
@@ -29,7 +36,7 @@
         },
         "travelDistance": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. The distance between the orgin bus stop and the destination bus stop corresponding to this observation."
+          "description": "Property. Model:'https://schema.org/Number'. The distance between the origin bus stop and the destination bus stop corresponding to this observation."
         },
         "passengerCount": {
           "type": "number",
@@ -51,21 +58,21 @@
           "type": "string",
           "description": "Property. Model:'https://schema.org/Text'. Area code of the passenger boarding stop (used by the fare collection agency). For example, whether the stop is city-bus-service stop or brts stop or other service type stop etc."
         },
-        "cardID": {
+        "cardId": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Unique ticket ID of the transaction or ID of the smart card used in the transaction."
+          "description": "Property. Model:'https://schema.org/Text'. Unique ticket Id of the transaction or Id of the smart card used in the transaction."
         },
-        "transactionTypeID": {
+        "transactionTypeId": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. ID for the transactionType corresponding to this observation. 2401 - QR sale, C201- smart card entry , C202 - smart card exit etc."
+          "description": "Property. Model:'https://schema.org/Text'. Id for the transactionType corresponding to this observation. 2401 - QR sale, C201- smart card entry , C202 - smart card exit etc."
         },
         "stage": {
           "type": "number",
           "description": "Property. Model:'https://schema.org/Number'. Total number of stages from the origin bus stop to the destination bus stop."
         },
-        "equipmentID": {
+        "equipmentId": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Unique ID of the equipment corresponding to this observation."
+          "description": "Property. Model:'https://schema.org/Text'. Unique Id of the equipment corresponding to this observation."
         },
         "direction_id": {
           "type": "number",
@@ -77,15 +84,15 @@
         },
         "shiftOfOperation": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Shift of operation of the public transit vehicle operated by the fare collection agency/ public transit agency or the employee corresponding to this observation. Indiacted as '1' when the vehicle operates in the first shift, '2' when the vehicle operates in the second shift and '3' when the vehilce operates in the third shift."
+          "description": "Property. Model:'https://schema.org/Text'. Shift of operation of the public transit vehicle operated by the fare collection agency/ public transit agency or the employee corresponding to this observation. Indicated as '1' when the vehicle operates in the first shift, '2' when the vehicle operates in the second shift and '3' when the vehicle operates in the third shift."
         },
         "route_id": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Route ID assigned to the route on which the bus/vehicle corresponding to the bus in this observation is currently plying on. SameAs: 'route_id' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)"
+          "description": "Property. Model:'https://schema.org/Text'. Route Id assigned to the route on which the bus/vehicle corresponding to the bus in this observation is currently plying on. SameAs: 'route_id' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)"
         },
         "trip_id": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Trip ID/Trip name alloted to the bus corresponding to this observation, in consideration to the time of the day and the direction of the trip on the given routeId. SameAs: 'trip_id' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)"
+          "description": "Property. Model:'https://schema.org/Text'. Trip Id/Trip name alloted to the bus corresponding to this observation, in consideration to the time of the day and the direction of the trip on the given routeId. SameAs: 'trip_id' field from GTFS Realtime message-TripDescriptor (https://developers.google.com/transit/gtfs-realtime/reference#message-tripdescriptor)"
         },
         "originStopCategory": {
           "type": "string",
@@ -104,21 +111,28 @@
           "format": "date-time",
           "description": "Property. Model:'https://schema.org/Text'. Date-time of the transaction corresponding to this observation."
         },
-        "destinationStopID": {
+        "destinationStopId": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Unique ID of the bus stop at which the passenger deboards from the bus corresponding to this observation."
+          "description": "Property. Model:'https://schema.org/Text'. Unique Id of the bus stop at which the passenger deboards from the bus corresponding to this observation."
         },
         "originDestinationCode": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. The code for the orgin and destination stops corresponding to this observation."
+          "description": "Property. Model:'https://schema.org/Text'. The code for the origin and destination stops corresponding to this observation."
         },
         "currentTripCount": {
           "type": "number",
-          "description": "Property. Model:'https://schema.org/Number'. The current count of trips made by the vehicle corresponding to this obersvation on the given day of operation."
+          "description": "Property. Model:'https://schema.org/Number'. The current count of trips made by the vehicle corresponding to this observation on the given day of operation."
         },
         "equipmentTypeCode": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Unique code indicating the type of equipment used in the transaction (used by fare collection agency).ENUM [1B, 42, 02, 08, 41] 1B - POS, 42 - HTT, 02- Mobile, 08- Fare Gate, 41- Pole Validator"
+          "description": "Property. Model:'https://schema.org/Text'. Unique code indicating the type of equipment used in the transaction (used by fare collection agency).ENUM [1B, 42, 02, 08, 41] 1B - POS, 42 - HTT, 02- Mobile, 08- Fare Gate, 41- Pole Validator",
+          "enum": [
+            "1B",
+            "42",
+            "02",
+            "08",
+            "41"
+          ]
         },
         "destinationStopCategory": {
           "type": "string",
@@ -143,23 +157,23 @@
         },
         "transactionTypeDescription": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Description of the transaction type. Explanation of various transanctionTypeID codes used in the data."
+          "description": "Property. Model:'https://schema.org/Text'. Description of the transaction type. Explanation of various transactionTypeId codes used in the data."
         },
         "exitAreaCode": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Area code of the passenger alighting stop (used by the fare collection agency). For example, whether the stop is city-bus-service stop or brts stop or other service type stop etc."
+          "description": "Property. Model:'https://schema.org/Text'. Area code of the passenger alighting stop (used by the fare collection agency). For example, whether the stop is city-bus-service stop or BRTS stop or other service type stop etc."
         },
         "equipmentType": {
           "type": "string",
           "description": "Property. Model:'https://schema.org/Text'. Type of equipment or the name of the equipment corresponding to this observation."
         },
-        "equipmentStopID": {
+        "equipmentStopId": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Stop ID (BRTS) at which the equipment corresponding to this transaction is installed."
+          "description": "Property. Model:'https://schema.org/Text'. Stop Id (BRTS) at which the equipment corresponding to this transaction is installed."
         },
-        "originStopID": {
+        "originStopId": {
           "type": "string",
-          "description": "Property. Model:'https://schema.org/Text'. Unique ID of the bus stop at which the passenger boards into the bus corresponding to this observation."
+          "description": "Property. Model:'https://schema.org/Text'. Unique Id of the bus stop at which the passenger boards into the bus corresponding to this observation."
         }
       }
     }
