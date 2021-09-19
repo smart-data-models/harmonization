@@ -1,0 +1,984 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "GSMA",
+  "$id": "https://smart-data-models.github.io/GSMA/Building-Type/schema.json",
+  "title": "Smart Data models - Building-Type schema",
+  "description": "A description of a Building-Type",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity identifier. It has to be Building-Type"
+        },
+        "enum": [
+          "Building-Type"
+        ],
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Indicates the date/ time that the instance of the entity was created in ISO 8601 format. The value of this will be set by the server when the entity was created."
+        },
+        "modifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Indicates the date/ time when the entity was last modified in ISO 8601 format. The value of this will be set by the server when the entity was modified, if the entity has not been modified it may have a null value."
+        },
+        "entityVersion": {
+          "type": "string",
+          "description": "Property. The entity specification version as a number. A version number of 2.0 or later denotes the entity is represented using NGSI-LD"
+        },
+        "uav": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to the UAV entity to which this state vector relates."
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Indicates the date/time the fault was detected or identified."
+        },
+        "originatedByUAV": {
+          "type": "string",
+          "description": "Property. A logical indicator of source of the message. True indicates it is the UAV itself, false indicates that it is a different source, a listening station software application or a different UAV."
+        },
+        "originator": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Refers to a third party UAV instance or other entity (e.g. listening station) that reported the information in the case the message was not directly originated by the UAV."
+        },
+        "flightMessage": {
+          "type": "string",
+          "description": "Property. A flight message describing the current flight status encoded as a Global UTM Message encoded as a JSON object. https://bitbucket.org/global_utm/flight-declaration-protocol"
+        },
+        "dateObserved": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Indicates the date/time the observation was recorded.Note this field was defined for use with NGSIv2 and is now deprecated. For new entities and applications replace with **observedAt**"
+        },
+        "fleetVehicle": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to the FleetVehicle entity to which this status entity relates."
+        },
+        "fleetVehicleOperation": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to the FleetVehicleOperation entity to which this status entity relates."
+        },
+        "restFuelAmount": {
+          "type": "string",
+          "description": "Property. The level of fuel recorded when the vehicle was last at rest (i.e. stopped). The timestamp element of the attribute should indicate when the vehicle was last at rest. Data to be recorded in Litres."
+        },
+        "lastFuellingAmount": {
+          "type": "string",
+          "description": "Property. The level of fuel added to the vehicle at the last fuelling. The timestamp element of the attribute should indicate when the vehicle was fuelled. Data tobe recorded in Litres."
+        },
+        "currentStatus": {
+          "type": "string",
+          "description": "Property. A description of the current status of the vehicle e.g. deployed, finished, terminated, servicing, starting"
+        },
+        "currentOperative": {
+          "type": "string",
+          "description": "Property. The current operative (e.g. driver) of the vehicle described as a Schema.org "
+          person
+          ". https://schema.org/Person"
+        },
+        "speed": {
+          "type": "string",
+          "description": "Property. The current speed of the fleet vehicle (km/h). The timestamp element of the attribute should indicate when the reading was obtained."
+        },
+        "bearing": {
+          "type": "string",
+          "description": "Property. The current bearing of the fleet vehicle in degrees relative to North. The timestamp element of the attribute should indicate when the reading was obtained."
+        },
+        "lastKnownPosition": {
+          "$ref": "https://github.com/smart-data-models/data-models/blob/master/common-schema.json#/definitions/Location-Commons/properties/location"
+        },
+        "lastKnownPositionUpdatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. The timestamp of the last known position update for the fleet vehicle."
+        },
+        "inRestrictedArea": {
+          "type": "string",
+          "description": "Property. Indicates if the vehicle is known to be in a restricted area at the time of the status update."
+        },
+        "mileageFromOdometer": {
+          "type": "string",
+          "description": "Property. The total distance the fleet vehicle has travelled according to the on-board odometer in kilometres (unitCode KMT) or miles (unitCode SMI). See also Schema.org Vehicle/ mileageFromOdometer. The timestamp element records when the odometer reading was taken."
+        },
+        "lastKnownPositionUpdate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. The timestamp of the last known position update for the fleet vehicle.Note this field was defined for use with NGSIv2 and is now deprecated. For new entities and applications replace with **lastKnownPositionUpdatedAt**"
+        },
+        "validationResult": {
+          "type": "string",
+          "description": "Property. A logical indicator of validation of the message. True indicates it is the validation is confirmed, false indicates that the validation confirmation fails."
+        },
+        "flightControlPolicy": {
+          "type": "string",
+          "description": "Property. Indicates the flight control policy generated by the service provider. This data could be included as a text value or referenced by a URI (URL/URN) to a policy defined in JSON or XML format."
+        },
+        "entity": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to the entity this price forecast relates to e.g. an AgriProduct entity."
+        },
+        "priceAverage5Year": {
+          "type": "string",
+          "description": "Property. The five year average market price observed represented using schema.org PriceSpecification attributes http://schema.org/PriceSpecification"
+        },
+        "priceObserved": {
+          "type": "string",
+          "description": "Property. The market price observed represented using schema.org PriceSpecification attributes http://schema.org/PriceSpecification"
+        },
+        "marketScale": {
+          "type": "string",
+          "description": "Property. Unique code assigned to market scale type. The content includes both a name and a value."
+        },
+        "weatherForecast": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A reference to a related weather forecast record"
+        },
+        "device": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to the base IoT device definition for the smart meter to cover standard attributes such as serial number, manufacturer etc."
+        },
+        "operationType": {
+          "type": "string",
+          "description": "Property. A choice from an enumerated list including: **event, maintenance, fault, installation, upgrade, other.**"
+        },
+        "result": {
+          "type": "string",
+          "description": "Property. The result of the operation. One of **ok, aborted, failed.**"
+        },
+        "plannedStartAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. The planned start date/timestamp for the operation. Note that this is advisory and the actual time the operation starts may be before or after the planned start."
+        },
+        "plannedEndAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. The planned end date/timestamp for the operation. Note that this is advisory and the actual time the operation finishes may be before or after the planned end."
+        },
+        "status": {
+          "type": "string",
+          "description": "Property. A choice from an enumerated list describing the status. One of: **planned, ongoing, finished, scheduled, cancelled.**"
+        },
+        "operator": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. The usual operator/driver/keeper of this fleet vehicle encoded as a Schema.org "
+          person
+          ". https://schema.org/Person"
+        },
+        "startedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp when the operation actually started to be performed."
+        },
+        "endedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp when the operation actually finished."
+        },
+        "reportedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp when the event/ fault was reported."
+        },
+        "addressedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. The timestamp when an event or fault was addressed or cleared."
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. The planned start date/timestamp for the operation. Note that this is advisory and the actual time the operation starts may be before or after the planned start.Note this field was defined for use with NGSIv2 and is now deprecated. For new entities and applications replace with **plannedStartAt**"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. The planned end date/timestamp for the operation. Note that this is advisory and the actual time the operation finishes may be before or after the planned end.Note this field was defined for use with NGSIv2 and is now deprecated. For new entities and applications replace with **plannedEndAt**"
+        },
+        "dateStarted": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp when the operation actually started to be performed.Note this field was defined for use with NGSIv2 and is now deprecated. For new entities and applications replace with **startedAt**"
+        },
+        "dateFinished": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp when the operation actually finished.Note this field was defined for use with NGSIv2 and is now deprecated. For new entities and applications replace with **endedAt**"
+        },
+        "dateReported": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Timestamp when the event/ fault was reported.Note this field was defined for use with NGSIv2 and is now deprecated. For new entities and applications replace with **reportedAt**"
+        },
+        "dateAddressed": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. The timestamp when an event or fault was addressed or cleared.Note this field was defined for use with NGSIv2 and is now deprecated. For new entities and applications replace with **addressedAt**"
+        },
+        "uavModel": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to the UAV Model definition which describes the UAV in more detail."
+        },
+        "operationMode": {
+          "type": "string",
+          "description": "Property. Text describing the choice from "
+          vlos
+          ", "
+          evlos
+          ", "
+          bvlos
+          ", "
+          automated
+          "Note: descriptions align with UTM Flight message."
+        },
+        "elevation": {
+          "type": "string",
+          "description": "Property. The elevation of the UAV (relative to ground level at the specified location). Specify value and units of measure."
+        },
+        "flightStatus": {
+          "type": "string",
+          "description": "Property. The flight status of the UAV, including: **stop, takeoff, flight, hover, land**"
+        },
+        "workStatus": {
+          "type": "string",
+          "description": "Property. The work status of the UAV, including: **stop, prepare, work, finish**"
+        },
+        "groundSpeed": {
+          "type": "string",
+          "description": "Property. The latest reported ground speed of the UAV. Specify value and units of measure"
+        },
+        "fuel": {
+          "type": "string",
+          "description": "Property. Current fuel load of the UAV. Specify value and units of measure"
+        },
+        "vehicle": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to the vehicle entity which this fault relates to."
+        },
+        "fleetVehicleType": {
+          "type": "string",
+          "description": "Property. The type of the Vehicle for example (not limited to): **Taxi, Ambulance, Postal, Fire & Rescue, Delivery.**"
+        },
+        "operatingCompany": {
+          "type": "string",
+          "description": "Property. Details of the organization that is operating this fleet vehicle. Based on Schema.org "
+          organization
+          ": https://schema.org/Organization"
+        },
+        "smartMeter": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to the Smart Meter that this observation relates to."
+        },
+        "totalConsumption": {
+          "type": "string",
+          "description": "Property. The total amount of product supplied as recorded by the meter since installation. The relevant unitCode should be specified such as KWH (Kilo Watt Hours) for Electricity, LTR (Litre) or MTQ (Cubic Metre) for gases or liquids."
+        },
+        "photo": {
+          "type": "string",
+          "description": "Property. A picture of the meter installation. Comprises the text string encoded from the binary data of a JPEG format photo of the meter. The binary data must be converted to ASCII text using the base64 encoding standard."
+        },
+        "peakConsumption": {
+          "type": "string",
+          "description": "Property. The total amount of product supplied during "
+          peak
+          " hours (particularly relevant to Electricity supply) as recorded by the meter since installation. The relevant unitCode should be specified such as KWH (Kilo Watt Hours) for Electricity, LTR (Litre) or MTQ (Cubic Metre) for gases or liquids."
+        },
+        "offPeakConsumption": {
+          "type": "string",
+          "description": "Property. The total amount of product supplied during "
+          off-peak
+          " hours (particularly relevant to Electricity supply) as recorded by the meter since installation. The relevant unitCode should be specified such as KWH (Kilo Watt Hours) for Electricity, LTR (Litre) or MTQ (Cubic Metre) for gases or liquids."
+        },
+        "powerFactor": {
+          "type": "string",
+          "description": "Property. Relevant to 3-Phase electricity supplies often used in industry - the power factor ranges from -1 to +1 depending on the net balance between capacitive and inductive loads. If used this measures the average power factor since meter installation."
+        },
+        "place": {
+          "type": "string",
+          "description": "Property. Alternate specification of the installation location for a fixed position Smart Meter"
+        },
+        "productType": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Refers to the relevant ProductType record that this entity is associated with."
+        },
+        "supplierName": {
+          "type": "string",
+          "description": "Property. The name of the supplier of this product."
+        },
+        "gtin": {
+          "type": "string",
+          "description": "Property. GS1 product code.A Global Trade Item Number (GTIN) is the 14 digit GS1 Identification Key used to identify products.See http://www.gs1.org/gtin for more details."
+        },
+        "gpcCategoryCode": {
+          "type": "string",
+          "description": "Property. Product category code8-digit code (GPC "
+          Brick
+          Value
+          ") specifying a product category according to the GS1 Global Product Classification (GPC) standard.For more information see http://www.gs1.org/gpc"
+        },
+        "productName": {
+          "type": "string",
+          "description": "Property. The name of this product."
+        },
+        "brand": {
+          "type": "string",
+          "description": "Property. The brand name for this product."
+        },
+        "inPackageWidth": {
+          "type": "string",
+          "description": "Property. The width of the product in the package, as measured according to the GS1 Package Measurement Rules. See http://www.gs1.org/package-measurement-rules-implementation-guide for more details."
+        },
+        "inPackageDepth": {
+          "type": "string",
+          "description": "Property. The depth of the product in the package, as measured according to the GS1 Package Measurement Rules. See http://www.gs1.org/package-measurement-rules-implementation-guide for more details."
+        },
+        "inPackageHeight": {
+          "type": "string",
+          "description": "Property. The height of the product in the package, as measured according to the GS1 Package Measurement Rules. See http://www.gs1.org/package-measurement-rules-implementation-guide for more details."
+        },
+        "netWeight": {
+          "type": "string",
+          "description": "Property. Used to identify the net weight of the product. Net Weight excludes all packaging material, including the packaging material of all lower-level GTINs. Example:11.5 kg"
+        },
+        "grossWeight": {
+          "type": "string",
+          "description": "Property. Used to identify the gross weight of the product. The gross weight includes all packaging materials of the product. At pallet level the gross weight includes the weight of the pallet itself. For example, 200 GRM, value - total pounds, total grams, etc."
+        },
+        "countryOfOrigin": {
+          "type": "string",
+          "description": "Property. Country where the product was manufactured, harvested, mined etc. Code indicating the country of origin of the product."
+        },
+        "images": {
+          "type": "string",
+          "description": "Property. List of URIs (URNs/URLs) of images of the product."
+        },
+        "producerURI": {
+          "type": "string",
+          "description": "Property. URI (URL/URN) to the producer of the product"
+        },
+        "manufacturer": {
+          "type": "string",
+          "description": "Property. Details of the product manufacturer according to http://schema.org/Organization"
+        },
+        "POIs": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. A reference to associated Points of Interest (e.g. monitoring station, body of water) that this observation is related to."
+        },
+        "devices": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+              "description": "Property. Identifier format of any NGSI entity"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "description": "Property. Identifier format of any NGSI entity"
+            }
+          ],
+          "description": "Relationship. Reference to the IoT devices (i.e. sensors) which generated the water quality observations."
+        },
+        "depth": {
+          "type": "string",
+          "description": "Property. Depth below surface level where the observation was taken, nominally in metres."
+        },
+        "pressure": {
+          "type": "string",
+          "description": "Property. Hydrostatic pressure where the observation was taken, nominally in Hector Pascals."
+        },
+        "conductivity": {
+          "type": "string",
+          "description": "Property. Electrical conductivity, nominally in Siemens/metre."
+        },
+        "conductance": {
+          "type": "string",
+          "description": "Property. Specific conductivity at 25 degrees Celsius, nominally in Siemens/metre."
+        },
+        "temperature": {
+          "type": "string",
+          "description": "Property. The water temperature, nominally in degrees Celsius."
+        },
+        "tss": {
+          "type": "string",
+          "description": "Property. Total suspended solids."
+        },
+        "tds": {
+          "type": "string",
+          "description": "Property. Total dissolved solids."
+        },
+        "turbidity": {
+          "type": "string",
+          "description": "Property. Amount of light scattered by particles in the water column."
+        },
+        "salinity": {
+          "type": "string",
+          "description": "Property. Derived from the conductivity measurement, nominally reported as parts per thousand."
+        },
+        "pH": {
+          "type": "string",
+          "description": "Property. pH measurement (typically a number between 0 and 14)."
+        },
+        "orp": {
+          "type": "string",
+          "description": "Property. Oxidation-Reduction potential, nominally reported as milli-volts (mV)."
+        },
+        "cdom": {
+          "type": "string",
+          "description": "Property. Color dissolved organic matter."
+        },
+        "Chla": {
+          "type": "string",
+          "description": "Property. Concentration of chlorophyll A."
+        },
+        "Cl": {
+          "type": "string",
+          "description": "Property. Concentration of chlorides."
+        },
+        "CO": {
+          "type": "string",
+          "description": "Property. The level of free non-compound carbon monoxide present. ("
+        },
+        "CO2": {
+          "type": "string",
+          "description": "Property. The level of free non-compound carbon dioxide present."
+        },
+        "Hg": {
+          "type": "string",
+          "description": "Property. The level of compound mercury present."
+        },
+        "NH3": {
+          "type": "string",
+          "description": "Property. Concentration of free ammonia."
+        },
+        "NH4": {
+          "type": "string",
+          "description": "Property. Concentration of ammonium (ions)."
+        },
+        "NO3": {
+          "type": "string",
+          "description": "Property. Concentration of nitrates."
+        },
+        "O2": {
+          "type": "string",
+          "description": "Property. The level of free non-compound oxygen present."
+        },
+        "PC": {
+          "type": "string",
+          "description": "Property. Concentration of pigment phycocyanin which can be measured to estimate cyanobacteria concentrations specifically."
+        },
+        "PE": {
+          "type": "string",
+          "description": "Property. Concentration of pigment phycoerythrin which can be measured to estimate cyanobacteria concentrations specifically."
+        },
+        "stateVector": {
+          "type": "string",
+          "description": "Property. A state vector describing the current flight status based on the definition of opensky-network.org StateVector and encoded in JSON."
+        },
+        "eventType": {
+          "type": "string",
+          "description": "Property. The event type descriptor, a choice from an enumerated list including: **collision, emergency, harshAccel, harshDecel, auxBatteryWarn, milWarn.**"
+        },
+        "processingType": {
+          "type": "string",
+          "description": "Property. Indicates how the fault was dealt with, e.g. **systemHandled**, or not present if the issue has not been resolved."
+        },
+        "resolvedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Indicates the date/time at which the issue was solved, or not present if the issue has not been resolved."
+        },
+        "dtCode": {
+          "type": "string",
+          "description": "Property. DTC or Diagnostic Trouble Codes are codes generated by the vehicle"
+          s
+          computer
+          diagnostic
+          system.
+          These
+          may
+          be
+          manufacturer,
+          equipment
+          or
+          vehicle
+          specific.
+          "}, "
+          faultLog
+          ": {"
+          type
+          ": "
+          string
+          ", "
+          description
+          ": "
+          Property.
+          Free
+          text
+          that
+          records
+          information
+          about
+          the
+          initial
+          fault
+          incident,
+          ongoing
+          updates
+          and
+          fault
+          resolution.
+          "}, "
+          dateIdentified
+          ": {"
+          type
+          ": "
+          string
+          ", "
+          format
+          ": "
+          date-time
+          ", "
+          description
+          ": "
+          Property.
+          Indicates
+          the
+          date/time
+          the
+          fault
+          was
+          detected
+          or
+          identified.Note
+          this
+          field
+          was
+          defined
+          for
+          use
+          with
+          NGSIv2
+          and
+          is
+          now
+          deprecated.
+          For
+          new
+          entities
+          and
+          applications
+          replace
+          with
+          **observedAt**
+          "}, "
+          dateProcessed
+          ": {"
+          type
+          ": "
+          string
+          ", "
+          format
+          ": "
+          date-time
+          ", "
+          description
+          ": "
+          Property.
+          Indicates
+          the
+          date/time
+          at
+          which
+          the
+          issue
+          was
+          solved,
+          or
+          not
+          present
+          if
+          the
+          issue
+          has
+          not
+          been
+          resolved.Note
+          this
+          field
+          was
+          defined
+          for
+          use
+          with
+          NGSIv2
+          and
+          is
+          now
+          deprecated.
+          For
+          new
+          entities
+          and
+          applications
+          replace
+          with
+          **resolvedAt**
+          "}, "
+          meterType
+          ": {"
+          type
+          ": "
+          string
+          ", "
+          description
+          ": "
+          Property.
+          The
+          type
+          of
+          supply
+          being
+          metered
+          e.g.: **Electricity,
+          Gasoline,
+          Water,
+          Methane,
+          Diesel.**
+          "}, "
+          root
+          ": {"
+          type
+          ": "
+          string
+          ", "
+          description
+          ": "
+          Property.
+          A
+          logical
+          indicator
+          that
+          this
+          is
+          the
+          root
+          of
+          a
+          BuildingType
+          hierarchy.
+          True
+          indicates
+          it
+          is
+          the
+          root,
+          false
+          indicates
+          that
+          it
+          is
+          not
+          the
+          root.
+          "}, "
+          buildingTypeParent
+          ": {"
+          anyOf
+          ": [{"
+          type
+          ": "
+          string
+          ", "
+          minLength
+          ": 1, "
+          maxLength
+          ": 256, "
+          pattern
+          ": "
+          ^
+    [
+      \
+      \
+    w
+    \
+    \
+    -
+    \
+    \
+    .
+    \
+    \
+    {
+      \
+      \
+    }
+    \
+    \
+    $
+    \
+    \
+    +
+    \
+    \
+    *
+    \
+    \
+    [\\]
+    `
+    |
+    ~^@!
+    :
+    \
+    \
+    \
+    \
+  ]
+  +
+  $
+  ", "
+  description
+  ": "
+  Property.
+  Identifier
+  format
+  of
+  any
+  NGSI
+  entity
+  "}, {"
+  type
+  ": "
+  string
+  ", "
+  format
+  ": "
+  uri
+  ", "
+  description
+  ": "
+  Property.
+  Identifier
+  format
+  of
+  any
+  NGSI
+  entity
+  "}], "
+  description
+  ": "
+  Relationship.
+  References
+  any
+  higher
+  level
+  Building
+  Type
+  entities
+  that
+  this
+  type
+  is
+  based
+  on.
+  "}, "
+  buildingTypeChildren
+  ": {"
+  anyOf
+  ": [{"
+  type
+  ": "
+  string
+  ", "
+  minLength
+  ": 1, "
+  maxLength
+  ": 256, "
+  pattern
+  ": "
+  ^[
+  \
+  \w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,: \\\\]+$", "description": "Property. Identifier format of any NGSI entity"}, {"type": "string", "format": "uri", "description": "Property. Identifier format of any NGSI entity"}], "description": "Relationship. Reference to child building types i.e. immediately below this entity in the hierarchy."}}}]}
