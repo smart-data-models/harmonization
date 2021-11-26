@@ -1,6 +1,6 @@
 {
-  "id": "urn:ngsi-ld:VehicleFault:4939200a-5ef5-4266-8c91-1f82ad3b543b",
-  "type": "VehicleFault",
+  "id": "urn:ngsi-ld:EnvironmentObserved:33f02632-74f4-4c96-9ba1-e26945de9481",
+  "type": "EnvironmentObserved",
   "source": {
     "type": "URL",
     "value": "https://source.example.com"
@@ -8,18 +8,6 @@
   "dataProvider": {
     "type": "URL",
     "value": "https://provider.example.com"
-  },
-  "vehicle": {
-    "type": "Relationship",
-    "value": "urn:ngsi-ld:Vehicle:1fa179a6-b507-4857-ad72-eb5513ef05c6"
-  },
-  "observedAt": {
-    "type": "DateTime",
-    "value": "2017-05-04T10:18:16Z"
-  },
-  "eventType": {
-    "type": "Text",
-    "value": "emergency"
   },
   "location": {
     "type": "geo:json",
@@ -31,20 +19,33 @@
       ]
     }
   },
-  "processingType": {
-    "type": "Text",
-    "value": "systemHandled"
+  "pointOfInterest": {
+    "type": "Relationship",
+    "value": [
+      "urn:ngsi-ld:POI:cdfd9cb8-ae2b-47cb-a43a-b9767ffd5c84",
+      "urn:ngsi-ld:POI:42dcd5ea-46db-11e8-bea0-772aba733f93",
+      "urn:ngsi-ld:POI:4912d78e-46db-11e8-8572-ab2b8e55590b"
+    ]
   },
-  "resolvedAt": {
-    "type": "DateTime",
-    "value": "2017-05-04T10:18:16Z"
+  "weatherObserved": {
+    "type": "Relationship",
+    "value": [
+      "urn:ngsi-ld:WeatherObserved:fae29f4c-0691-4bab-bef8-ad1cd165cc28",
+      "urn:ngsi-ld:WeatherObserved:1c7a2711-ae38-4ea9-8f9f-627067067d53"
+    ]
   },
-  "dtCode": {
-    "type": "Text",
-    "value": "EMERG-1234-a"
+  "airQualityObserved": {
+    "type": "Relationship",
+    "value": [
+      "urn:ngsi-ld:AirQualityObserved:4b8b09c9-ce54-46de-8067-5591e02d8f29",
+      "urn:ngsi-ld:WeatherObserved:08a14933-b44d-4297-b2d2-2c3f3844012e"
+    ]
   },
-  "faultLog": {
-    "type": "Text",
-    "value": "Emergency stop. Fault with engine"
+  "waterQualityObserved": {
+    "type": "Relationship",
+    "value": [
+      "urn:ngsi-ld:WeatherObserved:68a83e68-61e6-4e3c-975c-5b301c184ca6",
+      "urn:ngsi-ld:WeatherObserved:b01518e3-2b60-4bbd-9783-3af0d660349e"
+    ]
   }
 }
