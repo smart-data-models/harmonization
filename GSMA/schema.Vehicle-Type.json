@@ -142,7 +142,7 @@
           "description": "Property. The current bearing of the fleet vehicle in degrees relative to North. The timestamp element of the attribute should indicate when the reading was obtained."
         },
         "lastKnownPosition": {
-          "$ref": "https://github.com/smart-data-models/data-models/blob/master/common-schema.json#/definitions/Location-Commons/properties/location"
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
         },
         "lastKnownPositionUpdatedAt": {
           "type": "string",
@@ -919,7 +919,7 @@
           "description": "Relationship. Reference to the FleetVehicleStatus entity to which this operation relates - this contains the real-time status information "
         },
         "initiatingLocation": {
-          "$ref": "https://github.com/smart-data-models/data-models/blob/master/common-schema.json#/definitions/Location-Commons/properties/location"
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
         },
         "responseTime": {
           "type": "string",
@@ -952,7 +952,7 @@
           "description": "Property. The media content, generally encoded from binary source data e.g. a JPEG format photo to produce ASCII format text. The binary data must be converted to ASCII text using the base64 encoding standard.Either mediaEncoded or mediaUri should be provided but not both, if both are provided mediaUri should be prioritised."
         },
         "observedLocation": {
-          "$ref": "https://github.com/smart-data-models/data-models/blob/master/common-schema.json#/definitions/Location-Commons/properties/location"
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
         },
         "metadata": {
           "type": "string",
