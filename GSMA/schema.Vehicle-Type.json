@@ -17,11 +17,11 @@
       "properties": {
         "type": {
           "type": "string",
-          "description": "Property. NGSI Entity identifier. It has to be Vehicle-Type"
+          "description": "Property. NGSI Entity identifier. It has to be Vehicle-Type",
+          "enum": [
+            "Vehicle-Type"
+          ]
         },
-        "enum": [
-          "Vehicle-Type"
-        ],
         "createdAt": {
           "type": "string",
           "format": "date-time",
@@ -328,7 +328,7 @@
         },
         "operationMode": {
           "type": "string",
-          "description": "Property. Text describing the choice from  vlos, ,evlos, bvlos, automated, Note: descriptions align with UTM Flight message."
+          "description": "Property. Text describing the choice from vlos, evlos, bvlos, automated, Note: descriptions align with UTM Flight message. Enum:'vlos, evlos, bvlos'"
         },
         "elevation": {
           "type": "string",

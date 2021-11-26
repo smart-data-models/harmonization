@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "modelTags": "GSMA",
+  "$id": "https://smart-data-models.github.io/GSMA/Vehicle-Type/schema.json",
+  "title": "Smart Data models - Vehicle-Type schema",
+  "description": "A description of a Vehicle-Type",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Property. NGSI Entity identifier. It has to be Vehicle-Type",
+          "enum": [
+            "Vehicle-Type"
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Indicates the date/ time that the instance of the entity was created in ISO 8601 format. The value of this will be set by the server when the entity was created."
+        },
+        "modifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Property. Indicates the date/ time when the entity was last modified in ISO 8601 format. The value of this will be set by the server when the entity was modified, if the entity has not been modified it may have a null value."
+        },
+        "entityVersion": {
+          "type": "string",
+          "description": "Property. The entity specification version as a number. A version number of 2.0 or later denotes the entity is represented using NGSI-LD"
+        },
+        "model": {
+          "type": "string",
+          "description": "Property. The vehicle model identifier."
+        },
+        "category": {
+          "type": "string",
+          "description": "Property. The vehicle category identifier."
+        },
+        "manufacturer": {
+          "type": "string",
+          "description": "Property. The manufacturer’s identifier."
+        }
+      }
+    }
+  ],
+  "required": ["id", "type"]
+}
