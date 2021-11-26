@@ -26,9 +26,9 @@
           "type": "string",
           "description": "Property. The vehicle model identifier."
         },
-        "category": {
+        "vehicleType": {
           "type": "string",
-          "description": "Property. The vehicle category identifier."
+          "description": "Property. The vehicle type identifier."
         },
         "vehicle": {
           "anyOf": [
