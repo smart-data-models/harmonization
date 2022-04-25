@@ -1,0 +1,48 @@
+{
+  "id": "urn:ngsi-ld:UAVUTMFlightMessageAgent:cba823cc-5930-11e8-b8fe-d7c79082c9c7",
+  "type": "UAVUTMFlightMessageAgent",
+  "source": {
+    "type": "Text",
+    "value": "https://source.example.com"
+  },
+  "dataProvider": {
+    "type": "Text",
+    "value": "https://provider.example.com"
+  },
+  "unmannedAerialVehicle": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:UAV:23821045-33d4-46ec-b777-98f461bf4856"
+  },
+  "observedAt": {
+    "type": "DateTime",
+    "value": "2016-08-23T10:18:16Z"
+  },
+  "originatedByUnmannedAutonomousVehicle": {
+    "type": "Boolean",
+    "value": false
+  },
+  "originator": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:UAV:29935bbe-5922-11e8-9742-93bfb84686ec"
+  },
+  "flightMessage": {
+    "type": "StructuredValue",
+    "value": {
+      "flightId": "3ce68ac8-5932-11e8-9a8d-ef74eb0fb0a2",
+      "sequenceNumber": 0,
+      "flightDeclaration": {},
+      "version": "1.0.0"
+    }
+  },
+  "validationResult": {
+    "type": "Boolean",
+    "value": true
+  },
+  "flightControlPolicy": {
+    "type": "Text",
+    "value": "https://www.example.com/fight-policy"
+  },
+  "@context": [
+    "https://smart-data-models.github.io/dataModel.UnmannedAerialVehicle/UnmannedAerialVehicleTMSFlightMessage/context.jsonld"
+  ]
+}
